@@ -42,4 +42,22 @@ if (empty($slides)) {
         <div class="portal-slide-dots">@foreach($slides as $slide)<button @click="slide = {{ $loop->index }}" :class="{ 'is-active': slide === {{ $loop->index }} }" :aria-pressed="slide === {{ $loop->index }}" aria-label="Tampilkan sorotan {{ $loop->iteration }}"></button>@endforeach</div>
         @endif
     </div>
+    <div class="portal-service-connections" aria-labelledby="portal-connections-title">
+        <div class="portal-connections-heading">
+            <span class="portal-connections-line" aria-hidden="true"></span>
+            <div><h2 id="portal-connections-title">Data dan Layanan Pemerintahan</h2><p>Mendukung perencanaan pembangunan daerah</p></div>
+        </div>
+        <div class="portal-connections-links">
+            <a class="portal-service-link" href="{{ route('bps.index') }}">
+                <div class="portal-service-logo"><img src="{{ asset('images/logo-bps.png') }}" alt="Badan Pusat Statistik" width="150" height="117"></div>
+                <div class="portal-service-text"><strong>BPS Kabupaten Nias Barat</strong><span>Integrasi data statistik</span></div>
+                <svg class="portal-service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+            <a class="portal-service-link" href="https://sipd-ri.kemendagri.go.id/" target="_blank" rel="noopener noreferrer" aria-label="SIPD Republik Indonesia, akses portal resmi Kemendagri, buka tab baru">
+                <div class="portal-service-logo portal-service-logo-sipd"><img src="{{ asset('images/logo-sipd.png') }}" alt="SIPD Republik Indonesia" width="1316" height="506"></div>
+                <div class="portal-service-text"><strong>SIPD Republik Indonesia</strong><span>Akses portal resmi Kemendagri</span></div>
+                <svg class="portal-service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+        </div>
+    </div>
 </section>

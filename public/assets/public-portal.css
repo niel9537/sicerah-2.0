@@ -98,3 +98,22 @@ html{scroll-padding-top:240px}
 @media(max-width:767px){.bps-heading{align-items:flex-start;flex-direction:column;gap:15px}.bps-grid,.bps-publications{grid-template-columns:1fr}.bps-filters{flex-wrap:wrap;padding:16px}.bps-filters>div:first-of-type{flex-basis:100%}.bps-filters>div:nth-of-type(2){flex:1}.bps-filters input[type=number]{max-width:none}.bps-tabs{gap:4px}.bps-tabs a{font-size:11px;padding:9px 11px}.bps-region{gap:8px 18px}.bps-result-meta{font-size:11px}}
 
 @media(min-width:768px) and (max-width:1099px){.portal-nav-item{font-size:12px;padding-left:9px;padding-right:9px;gap:7px}.portal-nav-item .portal-icon{width:20px;height:20px}}
+
+/* Official data and government service identities alongside the hero. */
+.portal-service-connections{display:flex;align-items:center;gap:26px;margin-top:16px;padding:18px 22px;border:1px solid var(--sc-border);border-top:2px solid var(--sc-gold);border-radius:18px;background:#fff;box-shadow:0 5px 20px #68121D06}
+.portal-connections-heading{display:flex;align-items:center;gap:13px;flex:0 1 330px}
+.portal-connections-line{width:4px;height:39px;border-radius:4px;background:linear-gradient(180deg,var(--sc-red),var(--sc-gold));flex-shrink:0}
+.portal-connections-heading h2{font-size:13px;font-weight:800;color:var(--sc-red-deep);line-height:1.6}
+.portal-connections-heading p{font-size:10px;line-height:1.7;color:#897466;margin-top:2px}
+.portal-connections-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;flex:1;min-width:0}
+.portal-service-link{display:flex;align-items:center;gap:13px;padding:12px 15px;background:#FFFCF7;border:1px solid #EFE3D4;border-radius:12px;min-width:0;transition:border-color .2s,background .2s}
+.portal-service-link:hover{border-color:var(--sc-gold);background:#FFF7E8}
+.portal-service-logo{display:flex;align-items:center;justify-content:center;width:51px;height:43px;flex-shrink:0}
+.portal-service-logo img{display:block;object-fit:contain;width:100%;height:100%}
+.portal-service-logo-sipd{width:86px}
+.portal-service-text{min-width:0;flex:1}
+.portal-service-text strong{display:block;color:#3E2428;font-size:11px;font-weight:800;line-height:1.6}
+.portal-service-text span{display:block;color:#927126;font-size:10px;line-height:1.7;margin-top:2px}
+.portal-service-arrow{width:17px;height:17px;color:var(--sc-red-dark);flex-shrink:0}
+@media(max-width:1099px){.portal-service-connections{flex-direction:column;align-items:stretch;gap:15px}.portal-connections-heading{flex-basis:auto}.portal-connections-links{flex:auto}}
+@media(max-width:767px){.portal-service-connections{padding:16px 13px;margin-top:12px;border-radius:15px}.portal-connections-links{gap:10px}.portal-service-link{flex-direction:column;align-items:flex-start;gap:10px;padding:13px;position:relative}.portal-service-logo{height:35px;width:45px}.portal-service-logo-sipd{width:87px}.portal-service-text strong{font-size:10px}.portal-service-text span{font-size:9px}.portal-service-arrow{position:absolute;right:10px;top:14px;width:15px;height:15px}.portal-connections-heading h2{font-size:12px}.portal-connections-heading p{font-size:10px}}
