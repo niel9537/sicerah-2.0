@@ -10,6 +10,13 @@ use Tests\TestCase;
 
 class SeoTest extends TestCase
 {
+    public function test_sitemap_template_avoids_php_short_open_tag_conflict(): void
+    {
+        $html = view('seo.sitemap', ['entries' => [['url' => 'https://bappelitbangda.niasbaratkab.go.id/']]])->render();
+        $this->assertStringStartsWith('<urlset', $html);
+        $this->assertNotFalse(simplexml_load_string($html));
+    }
+
     public function test_metadata_has_canonical_and_valid_organization_schema(): void
     {
         $this->app['request'] = \Illuminate\Http\Request::create('/indikator-publik?jenis=IKU&utm_source=test');
