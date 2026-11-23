@@ -70,7 +70,7 @@
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
 
     {{-- ── Tabs jenis + Filter card ── --}}
-    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-[0_6px_28px_rgba(116,20,33,0.10)] -mt-6 mb-7 overflow-hidden">
+    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-[0_6px_28px_rgba(116,20,33,0.10)] mt-6 mb-7 overflow-hidden">
 
         {{-- Tab Jenis Indikator --}}
         <div class="flex items-stretch border-b border-slate-100 overflow-x-auto">
