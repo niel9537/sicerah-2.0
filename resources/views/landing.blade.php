@@ -9,6 +9,7 @@
        1. HERO SECTION (BANNER HORIZONTAL + 4 STATISTIK MENGAMBANG)
        ========================================================================= --}}
     @include('landing._portal-hero')
+    @include('landing._bps-publications')
 
 
     {{-- =========================================================================

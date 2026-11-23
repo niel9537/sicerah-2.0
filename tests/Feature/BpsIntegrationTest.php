@@ -27,6 +27,22 @@ class BpsIntegrationTest extends TestCase
         ]];
     }
 
+    public function test_home_publication_carousel_renders_bps_links_and_fallback_states(): void
+    {
+        Http::fake(['*' => Http::response($this->payload([
+            ['pub_id' => 'latest', 'title' => 'Nias Barat Dalam Angka 2026', 'rl_date' => '2026-02-28',
+                'pdf' => 'https://webapi.bps.go.id/download.php?f=latest', 'cover' => 'https://niasbaratkab.bps.go.id/cover.jpg'],
+        ]))]);
+        $items = app(BpsService::class)->listing('publication')['items'];
+        $this->view('landing._bps-publications', ['bpsPublications' => $items, 'bpsPublicationsUnavailable' => false])
+            ->assertSee('Publikasi BPS Terbaru')->assertSee('Nias Barat Dalam Angka 2026')
+            ->assertSee('Unduh PDF')->assertSee('Publikasi berikutnya')->assertSee('2026-02-28');
+        $this->view('landing._bps-publications', ['bpsPublications' => [], 'bpsPublicationsUnavailable' => true])
+            ->assertSee('Publikasi BPS belum dapat dimuat')->assertDontSee('Unduh PDF');
+        $this->view('landing._bps-publications', ['bpsPublications' => [], 'bpsPublicationsUnavailable' => false])
+            ->assertSee('Belum ada publikasi BPS yang tersedia.');
+    }
+
     public function test_public_bps_menu_queries_domain_and_preserves_filters_in_pagination(): void
     {
         Http::fake(['*' => Http::response($this->payload([['table_id' => 86, 'title' => 'Penduduk Nias Barat', 'subj' => 'Kependudukan', 'updt_date' => '2025-05-15', 'excel' => 'https://webapi.bps.go.id/download.php?f=abc']], ['pages' => 2, 'total' => 11]))]);

@@ -11,12 +11,13 @@ use App\Models\RealisasiTriwulanan;
 use App\Models\RpjmdIndicatorSource;
 use App\Models\SubKegiatan;
 use App\Services\IndicatorDataService;
+use App\Services\BpsService;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class LandingController extends Controller
 {
-    public function index(Request $request, IndicatorDataService $indicatorData): View
+    public function index(Request $request, IndicatorDataService $indicatorData, BpsService $bps): View
     {
         $tahunRange = range(2024, 2030);
         $tahun = (int) $request->integer('tahun', min(max((int) now()->year, 2024), 2030));
@@ -79,7 +80,17 @@ class LandingController extends Controller
 
         $carouselPublications = \App\Models\Publication::forCarousel()->get();
 
+        $bpsPublications = [];
+        $bpsPublicationsUnavailable = false;
+        try {
+            $bpsPublications = collect($bps->listing('publication')['items'])
+                ->sortByDesc('date')->take(10)->values()->all();
+        } catch (\RuntimeException $exception) {
+            $bpsPublicationsUnavailable = true;
+        }
+
         return view('landing', compact(
+            'bpsPublications', 'bpsPublicationsUnavailable',
             'carouselPublications', 'tahun', 'tahunRange', 'counts', 'aspek', 'indikatorDaerah', 'indikatorRpjmd',
             'capaianIku', 'indikatorMakro', 'ringkasanMakro', 'opdRpjmdList', 'kinerja', 'tren',
             'jdihTerbaru', 'opdList', 'terakhirDiperbarui'
