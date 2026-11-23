@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->name('indikator.publik');
 require __DIR__.'/webgis.php';
+Route::get('/bps', [\App\Http\Controllers\BpsController::class, 'index'])->name('bps.index');
+Route::get('/bps/tabel/{id}', [\App\Http\Controllers\BpsController::class, 'table'])->whereNumber('id')->name('bps.table');
 
 Route::view('/struktur-hierarki', 'public.empty', ['title' => 'Struktur Hierarki', 'section' => 'Struktur Hierarki'])->name('publik.struktur');
 Route::view('/kinerja/iku-opd', 'public.empty', ['title' => 'IKU OPD', 'section' => 'Kinerja'])->name('publik.iku-opd');

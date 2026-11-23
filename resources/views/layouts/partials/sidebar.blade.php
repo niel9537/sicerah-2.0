@@ -4,6 +4,7 @@
             'label' => 'Menu',
             'items' => [
                 ['label' => 'Dasbor', 'route' => 'dashboard', 'icon' => 'home'],
+                ['label' => 'Data BPS Nias Barat', 'route' => 'bps.index', 'icon' => 'chart'],
             ],
         ],
         [

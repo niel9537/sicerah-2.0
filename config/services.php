@@ -14,6 +14,16 @@ return [
     |
     */
 
+    'bps' => [
+        'api_key' => env('BPS_API_KEY', is_file(storage_path('app/private/bps-api-key'))
+            ? trim(file_get_contents(storage_path('app/private/bps-api-key'))) : null),
+        'domain' => env('BPS_DOMAIN', '1225'),
+        'base_url' => 'https://webapi.bps.go.id/v1/api',
+        'cache_store' => env('BPS_CACHE_STORE', 'file'),
+        'ca_bundle' => env('BPS_CA_BUNDLE', is_file(storage_path('app/private/bps-ca-bundle.pem'))
+            ? storage_path('app/private/bps-ca-bundle.pem') : null),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],
