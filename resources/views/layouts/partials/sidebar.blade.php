@@ -84,10 +84,10 @@
 
 <aside x-cloak
        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
-       class="admin-sidebar fixed inset-y-0 left-0 z-40 w-64 bg-[#121114] border-r border-white/5 transition-transform duration-300 lg:translate-x-0 flex flex-col shadow-2xl">
+       class="admin-sidebar fixed inset-y-0 left-0 z-40 w-64 bg-[#300810] border-r border-white/5 transition-transform duration-300 lg:translate-x-0 flex flex-col shadow-2xl">
 
     {{-- Brand Header with Official SICERAH Logo --}}
-    <div class="flex items-center justify-center h-24 px-5 border-b border-white/5 bg-[#121114]">
+    <div class="flex items-center justify-center h-24 px-5 border-b border-white/5 bg-[#300810]">
         <a href="{{ route($currentRole === 'inspektorat' ? 'prosn.index' : 'dashboard') }}" class="flex items-center justify-center w-full group py-2">
             <div class="logo-shimmer-wrapper logo-shimmer-dark">
                 <img src="{{ asset('images/logo-sicerah-dark.png') }}"
@@ -131,7 +131,7 @@
     </nav>
 
     {{-- Bottom User Profile Card (EGOVERN reference) --}}
-    <div class="p-4 border-t border-white/5 bg-[#0f0e11]">
+    <div class="p-4 border-t border-white/5 bg-[#300810]">
         <div class="flex items-center gap-3 p-2.5 rounded-2xl bg-white/5 border border-white/5">
             <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-400 text-slate-950 flex items-center justify-center font-extrabold text-sm shadow-md">
                 {{ strtoupper(mb_substr(auth()->user()->nama ?? 'U', 0, 1)) }}

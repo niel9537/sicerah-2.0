@@ -182,22 +182,12 @@ em, i, .italic {
     font-style: normal !important;
 }
 
-/* Admin navigation: red, gold, and black, matching the public portal. */
-.admin-sidebar{background:linear-gradient(165deg,#951c29 0%,#68121c 34%,#251216 72%,#121212 100%);border-right:1px solid #b98b32}
-.admin-sidebar>div:first-of-type{background:linear-gradient(110deg,#211315,#5c131d);border-bottom:1px solid #d4a01766}
-.admin-sidebar>div:last-of-type{background:#171112;border-top:1px solid #d4a01744}
-.admin-sidebar nav p{color:#e7c778}
-.admin-sidebar .sidebar-link{color:#f4dce0}
-.admin-sidebar .sidebar-link:not(.sidebar-link-active):hover{background:#bd283c77;color:#fff}
-.admin-sidebar .sidebar-link>span:first-child{color:#e3be65}
-.admin-sidebar .sidebar-link-active{background:linear-gradient(100deg,#b98620,#ffe095);color:#201408;box-shadow:0 4px 14px #12080840}
-.admin-sidebar .sidebar-link-active>span{color:#211509}
-
 /* Shared SICERAH identity across public, admin, and authentication layouts. */
 :root {
     --sc-red:#AD1D30; --sc-red-dark:#861827; --sc-red-deep:#68121D;
     --sc-gold:#D4A017; --sc-gold-light:#FFDA65; --sc-gold-ink:#946913;
     --sc-ink:#21191A; --sc-bg:#FBF8F4; --sc-surface:#FFFFFF; --sc-border:#EBDDD3;
+    --sc-sidebar:#4A0D18; --sc-sidebar-deep:#300810; --sc-sidebar-hover:#701627;
     --sc-brand-gradient:linear-gradient(110deg,#68121D 0%,#AD1D30 60%,#861827 100%);
 }
 body{background-color:var(--sc-bg);color:var(--sc-ink)}
@@ -212,12 +202,12 @@ body{background-color:var(--sc-bg);color:var(--sc-ink)}
 .table-modern tbody tr:hover{background:#FFFAF0}
 input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{border-color:var(--sc-gold);--tw-ring-color:#D4A01744}
 input[type=checkbox],input[type=radio]{color:var(--sc-red)}
-.admin-sidebar{background:var(--sc-brand-gradient);border-right:1px solid var(--sc-gold)}
-.admin-sidebar>div:first-of-type{background:linear-gradient(110deg,#58101B,#861827);border-bottom:1px solid #D4A01777}
-.admin-sidebar>div:last-of-type{background:#58101B;border-top:1px solid #D4A01766}
+.admin-sidebar{background:linear-gradient(180deg,var(--sc-sidebar) 0%,#3D0B14 65%,var(--sc-sidebar-deep) 100%);border-right:1px solid #D4A01766}
+.admin-sidebar>div:first-of-type{background:var(--sc-sidebar-deep);border-bottom:1px solid #D4A01766}
+.admin-sidebar>div:last-of-type{background:var(--sc-sidebar-deep);border-top:1px solid #D4A01766}
 .admin-sidebar nav p{color:#FFE0A3}
 .admin-sidebar .sidebar-link{color:#FFF1F2}
-.admin-sidebar .sidebar-link:not(.sidebar-link-active):hover{background:#FFF1F218;color:#FFDA65}
+.admin-sidebar .sidebar-link:not(.sidebar-link-active):hover{background:var(--sc-sidebar-hover);color:var(--sc-gold-light)}
 .admin-sidebar .sidebar-link>span:first-child{color:#FFDA65}
 .admin-sidebar .sidebar-link-active{background:linear-gradient(110deg,#D4A017,#FFDA65);color:#241808;box-shadow:0 4px 14px #58101B44}
 .admin-sidebar .sidebar-link-active>span{color:#241808}
