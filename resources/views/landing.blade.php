@@ -1,6 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'Portal Data & Kinerja Daerah')
+@section('title', 'SICERAH – Data Pembangunan Nias Barat CERAH')
+@section('meta_description', 'Portal SICERAH Bappelitbangda Kabupaten Nias Barat, Bumi Aekhula. Akses data pembangunan, RPJMD, IKU, IKD, statistik BPS, WebGIS, dan publikasi daerah.')
 
 @section('content')
 <div x-data="indicatorExplorer()" class="space-y-8">
@@ -9,6 +10,7 @@
        1. HERO SECTION (BANNER HORIZONTAL + 4 STATISTIK MENGAMBANG)
        ========================================================================= --}}
     @include('landing._portal-hero')
+    @include('landing._about-sicerah')
     @include('landing._bps-publications')
 
 

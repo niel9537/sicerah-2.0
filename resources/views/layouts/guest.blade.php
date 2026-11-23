@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ config('app.name') }}</title>
+    <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

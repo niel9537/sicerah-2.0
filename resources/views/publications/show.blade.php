@@ -1,6 +1,7 @@
 @extends('layouts.public')
 @section('title', $publication->judul)
 @section('meta_description', $publication->ringkasan)
+@section('meta_image', $publication->cover_url)
 @section('content')
 <article class="portal-page publication-detail">
     <div class="portal-breadcrumb"><a href="{{ route('landing') }}">Beranda</a><span>/</span><a href="{{ route('publik.publikasi') }}">Publikasi</a><span>/</span>Berita</div>

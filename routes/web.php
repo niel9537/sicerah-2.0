@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 // capaian IKU, dasbor kinerja ringkas, indikator makro daerah, JDIH, dan
 // profil Bappelitbangda kepada siapa saja tanpa perlu masuk ke sistem.
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
 Route::get('/api/cuaca/nias-barat', \App\Http\Controllers\WeatherController::class)->name('weather.nias-barat');
 Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->name('indikator.publik');
 require __DIR__.'/webgis.php';

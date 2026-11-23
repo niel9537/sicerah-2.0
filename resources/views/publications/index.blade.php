@@ -1,5 +1,6 @@
 @extends('layouts.public')
 @section('title', 'Publikasi & Berita')
+@section('meta_description', 'Berita dan publikasi Bappelitbangda Kabupaten Nias Barat: perencanaan, kegiatan, serta informasi pembangunan daerah menuju Nias Barat CERAH.')
 @section('content')
 <section class="portal-page publication-page">
     <div class="portal-breadcrumb"><a href="{{ route('landing') }}">Beranda</a><span>/</span>Publikasi</div>

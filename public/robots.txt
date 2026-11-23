@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /api/
+
+Sitemap: https://bappelitbangda.niasbaratkab.go.id/sitemap.xml
