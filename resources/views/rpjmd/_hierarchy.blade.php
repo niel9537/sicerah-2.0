@@ -19,6 +19,7 @@
                     <p class="mt-3 text-base leading-relaxed text-slate-800">{{ $pair['tujuan'] }}</p>
                 </div>
             </div>
+            @include('rpjmd._indicators', ['rows' => collect($hierarchyRows ?? [])->where('pair', $loop->index)])
         </li>
         @endforeach
     </ol>

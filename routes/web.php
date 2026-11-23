@@ -29,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 // profil Bappelitbangda kepada siapa saja tanpa perlu masuk ke sistem.
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/rpjmd/visi-misi', [\App\Http\Controllers\RpjmdContentController::class, 'show'])->name('publik.rpjmd');
+Route::get('/rpjmd/indikator/{indikator}', [\App\Http\Controllers\RpjmdContentController::class, 'indicator'])->whereNumber('indikator')->name('publik.rpjmd.indikator');
 Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
 Route::get('/api/cuaca/nias-barat', \App\Http\Controllers\WeatherController::class)->name('weather.nias-barat');
 Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->name('indikator.publik');

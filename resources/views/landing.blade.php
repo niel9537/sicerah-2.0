@@ -689,7 +689,11 @@
 
         {{-- Visi & Misi Pemerintah Kabupaten Nias Barat 2025-2029 --}}
         <div id="visi-misi" class="mt-6 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-            @include('rpjmd._hierarchy', ['rpjmd' => app(\App\Services\RpjmdContent::class)->get()])
+            @php
+                $rpjmd = app(\App\Services\RpjmdContent::class)->get();
+                $hierarchyRows = app(\App\Services\RpjmdHierarchy::class)->present($rpjmd);
+            @endphp
+            @include('rpjmd._hierarchy', compact('rpjmd', 'hierarchyRows'))
             <div class="mt-6 pt-5 border-t border-amber-100 text-xs text-slate-500 leading-relaxed">
                 <p class="font-bold text-[#191716] mb-1">Dasar Hukum</p>
                 <p>Peraturan Daerah Kabupaten Nias Barat Nomor 5 Tahun 2025 tentang Rencana Pembangunan Jangka Menengah Daerah Tahun 2025&ndash;2029, ditetapkan pada 19 Agustus 2025.</p>

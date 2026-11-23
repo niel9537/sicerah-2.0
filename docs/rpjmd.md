@@ -8,6 +8,10 @@ Super admin dapat mengedit melalui **CMS Portal → Kelola RPJMD** (`/dashboard/
 
 Perubahan CMS disimpan secara atomik di `storage/app/private/rpjmd-content.json`; sertakan file ini dalam backup dan pertahankan direktori storage saat deployment. Tidak memerlukan migrasi atau perubahan data indikator.
 
+Hierarki dilengkapi 11 sasaran, 60 indikator dan target 2025–2030 dari `resources/data/rpjmd-hierarchy.json`. Kelompok tanpa sasaran adalah indikator tujuan. Beranda dan halaman RPJMD menampilkan seluruh rincian ini.
+
+`RpjmdHierarchy` mencocokkan nama dengan tabel `indikator` tanpa menghapus kualifikasi substantif. Duplikat dipilih dengan prioritas IKD, kemudian IKU/IKK, sumber daerah, Bank Data, dan ID terkecil. Admin dapat mengganti tautan per baris sumber melalui pilihan indikator pada CMS; ID pilihan disimpan dalam `links`. Target ditarik langsung dari `indikator_target`, lalu target sumber RPJMD daerah jika nilainya tunggal, kemudian target Tabel 3.5. Nilai nol tetap valid. Nilai asli Tabel 3.5 selalu dipertahankan dan ditampilkan saat berbeda. Tautan detail publik memakai ID indikator dan menampilkan semua sumber target tanpa mencampur target perangkat daerah.
+
 Menu **RPJMD dan Indikator → RPJMD 2025–2030** (`/rpjmd`) tersedia untuk super admin dan admin Bappeda.
 
 Sinkronisasi lima file asli:

@@ -15,6 +15,19 @@
             @endforeach
         </div></fieldset>
         @endforeach
+        <section class="rounded-2xl bg-white border border-slate-200 p-6 space-y-4">
+            <h2 class="text-xl font-bold">Hubungkan indikator dan target</h2>
+            <p class="text-sm text-slate-600">Pilih indikator yang sudah ada untuk setiap baris Tabel 3.5. Pencocokan otomatis mengutamakan IKD, sumber daerah dan Bank Data. Pilihan manual menggantikan hasil otomatis. Target mengikuti tabel indikator aktif, kemudian sumber RPJMD daerah; jika belum tersedia, target Tabel 3.5 digunakan.</p>
+            @foreach($hierarchyRows as $row)
+            <div class="border-t border-slate-100 pt-4"><label class="block text-sm font-semibold mb-2" for="link-{{ $row['row'] }}">Misi {{ $row['pair'] + 1 }} · Baris {{ $row['row'] }} — {{ $row['nama'] }}</label>
+                <select id="link-{{ $row['row'] }}" name="links[{{ $row['row'] }}]" class="w-full rounded-xl border-slate-300">
+                    <option value="">Otomatis berdasarkan nama</option>
+                    @foreach($indicators as $indicator)<option value="{{ $indicator->id }}" @selected((string)old("links.{$row['row']}", $rpjmd['links'][$row['row']] ?? '') === (string)$indicator->id)>{{ $indicator->jenis }} · {{ $indicator->kode ?: $indicator->id }} · {{ $indicator->nama }}</option>@endforeach
+                </select>
+                <p class="mt-2 text-sm text-slate-500">{{ $row['indikator'] ? 'Terhubung: '.$row['indikator']->nama : ($row['ambiguous'] ? 'Ada beberapa kecocokan; pilih indikator yang sesuai.' : 'Belum ada kecocokan otomatis; pilih indikator yang sesuai.') }}</p>
+            </div>
+            @endforeach
+        </section>
         <button type="submit" class="btn-primary">Simpan RPJMD</button>
     </form>
 </div>
