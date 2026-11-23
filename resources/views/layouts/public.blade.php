@@ -32,7 +32,7 @@
             font-style: normal;
             background-color: #FBF8F4;
             color: #121212;
-            overflow-x: hidden;
+            overflow-x: clip;
         }
         em, i, .italic { font-style: normal !important; }
         [x-cloak] { display: none !important; }
