@@ -1,6 +1,8 @@
 <section class="bps-latest max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-labelledby="bps-latest-title"
-    x-data="{ previous: false, next: false, update() { const track = this.$refs.track; this.previous = track.scrollLeft > 2; this.next = track.scrollLeft + track.clientWidth < track.scrollWidth - 2; }, move(direction) { this.$refs.track.scrollBy({ left: direction * this.$refs.track.clientWidth * .85, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }); } }"
-    x-init="$nextTick(() => update())" @resize.window.debounce="update()">
+    x-data="publicationCarousel" @resize.window.debounce="update()"
+    @mouseenter="hovered = true" @mouseleave="hovered = false"
+    @focusin="focused = true" @focusout="focused = $el.contains($event.relatedTarget)"
+    @touchstart.passive="hovered = true" @touchend.passive="hovered = false" @touchcancel.passive="hovered = false">
     <div class="bps-latest-heading">
         <div><p class="bps-latest-eyebrow">STATISTIK RESMI DAERAH</p><h2 id="bps-latest-title">Publikasi BPS Terbaru</h2><p>Terbitan terbaru Badan Pusat Statistik Kabupaten Nias Barat.</p></div>
         <a class="bps-latest-all" href="{{ route('bps.index', ['kategori' => 'publication']) }}">Lihat Semua <span aria-hidden="true">&#8594;</span></a>
@@ -20,7 +22,7 @@
                 </article>
             @endforeach
         </div>
-        <div class="bps-latest-controls"><span>Geser untuk melihat publikasi lainnya</span><div><button type="button" @click="move(-1)" :disabled="!previous" aria-label="Publikasi sebelumnya" aria-controls="bps-latest-track">&#8592;</button><button type="button" @click="move(1)" :disabled="!next" aria-label="Publikasi berikutnya" aria-controls="bps-latest-track">&#8594;</button></div></div>
+        <div class="bps-latest-controls"><span>Geser untuk melihat publikasi lainnya</span><div><button type="button" @click="playing = !playing" :aria-label="playing ? 'Jeda pergeseran otomatis' : 'Mulai pergeseran otomatis'" :aria-pressed="playing" aria-controls="bps-latest-track"><span aria-hidden="true" x-text="playing ? 'Ⅱ' : '▶'">Ⅱ</span></button><button type="button" @click="move(-1)" :disabled="!previous" aria-label="Publikasi sebelumnya" aria-controls="bps-latest-track">&#8592;</button><button type="button" @click="move(1)" :disabled="!next" aria-label="Publikasi berikutnya" aria-controls="bps-latest-track">&#8594;</button></div></div>
     @else
         <div class="bps-latest-empty" role="status">{{ $bpsPublicationsUnavailable ? 'Publikasi BPS belum dapat dimuat. Silakan coba kembali beberapa saat lagi.' : 'Belum ada publikasi BPS yang tersedia.' }}</div>
     @endif
