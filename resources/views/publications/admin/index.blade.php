@@ -1,0 +1,12 @@
+@extends('layouts.app')
+@section('title', 'CMS Publikasi')
+@section('content')
+<div class="space-y-6">
+    <div class="flex flex-wrap justify-between items-start gap-4"><div><p class="text-sm font-semibold text-red-800">CMS SICERAH</p><h1 class="text-2xl font-extrabold mt-1">Kelola Publikasi</h1><p class="text-sm text-slate-500 mt-2">Kelola berita, gambar sampul, draf, dan jadwal penerbitan.</p></div><div class="flex gap-3"><a class="btn-secondary" href="{{ route('publik.publikasi') }}">Lihat Publikasi</a><a class="btn-primary" href="{{ route('cms.publications.create') }}">Tambah Publikasi</a></div></div>
+    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-900">Carousel beranda otomatis menampilkan maksimal 3 publikasi terbaru yang terbit dalam 7 hari terakhir. Draf dan publikasi terjadwal belum ditampilkan.</div>
+    <div class="bg-white border border-slate-200 rounded-2xl overflow-x-auto"><table class="table-modern w-full"><thead><tr><th class="text-left">Publikasi</th><th class="text-left">Status</th><th class="text-left">Tanggal terbit (WIB)</th><th class="text-left">Tindakan</th></tr></thead><tbody>
+    @forelse($publications as $publication)<tr><td><div class="font-bold">{{ $publication->judul }}</div><p class="text-xs text-slate-500 mt-1">{{ $publication->kategori }}</p></td><td><span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $publication->is_published ? 'bg-amber-100 text-amber-900' : 'bg-slate-100 text-slate-600' }}">{{ !$publication->is_published ? 'Draf' : ($publication->published_at?->isFuture() ? 'Terjadwal' : 'Terbit') }}</span></td><td class="text-sm whitespace-nowrap">{{ $publication->published_at?->format('d/m/Y H:i') ?? '-' }}</td><td><div class="flex items-center gap-3"><a class="text-red-800 font-bold text-sm" href="{{ route('cms.publications.edit', $publication) }}">Edit</a>@if($publication->is_published && $publication->published_at?->isPast())<a class="text-sm text-slate-600" href="{{ route('publik.publikasi.show', $publication) }}">Lihat</a>@endif<form method="post" action="{{ route('cms.publications.destroy', $publication) }}" onsubmit="return confirm('Hapus publikasi ini?')">@csrf @method('DELETE')<button class="text-sm text-red-700" type="submit">Hapus</button></form></div></td></tr>
+    @empty<tr><td colspan="4" class="text-center text-slate-500 py-12">Belum ada publikasi. Tambahkan berita pertama Anda.</td></tr>@endforelse
+    </tbody></table></div>{{ $publications->links() }}
+</div>
+@endsection

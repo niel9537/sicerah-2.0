@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'SICERAH') — Bappelitbangda Nias Barat</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <meta name="description" content="@yield('meta_description', 'Portal publik indikator kinerja dan pembangunan Kabupaten Nias Barat.')">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('head')
+
+    <style>
+        :root {
+            --sc-gold: #d97706;
+            --sc-gold-dark: #78350f;
+            --sc-gold-light: #f59e0b;
+            --sc-accent: #fbbf24;
+        }
+        html, body {
+            font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+            font-style: normal;
+            overflow-x: hidden;
+        }
+        em, i, .italic { font-style: normal !important; }
+        [x-cloak] { display: none !important; }
+        :focus-visible { outline: 3px solid rgba(217, 119, 6, 0.4); outline-offset: 2px; border-radius: .75rem; }
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s cubic-bezier(0.16, 1, 0.3, 1), transform .55s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.is-visible { opacity: 1; transform: none; }
+        .public-card {
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .public-hero {
+            background-color: #161007 !important;
+            background-image: linear-gradient(135deg, #161007 0%, #291d0a 45%, #422f12 100%) !important;
+            color: #fff !important;
+        }
+        .public-footer {
+            background: #120e08 !important;
+            color: rgba(255, 255, 255, 0.75) !important;
+        }
+        .indicator-modal-shell {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 2147483600 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            isolation: isolate;
+        }
+        .indicator-modal-backdrop {
+            position: absolute !important;
+            inset: 0 !important;
+            background: rgba(15, 23, 42, 0.7) !important;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+        .indicator-modal-panel {
+            position: relative !important;
+            z-index: 1 !important;
+            width: min(920px, calc(100vw - 32px)) !important;
+            max-height: calc(100dvh - 32px) !important;
+            overflow-y: auto !important;
+            margin: auto !important;
+            background: #fff !important;
+            border-radius: 28px !important;
+            box-shadow: 0 28px 80px -22px rgba(15, 23, 42, 0.6) !important;
+            overscroll-behavior: contain;
+        }
+        .indicator-chart-wrap { height: 320px; position: relative; }
+        .public-bottom-nav {
+            position: fixed !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            z-index: 2147483000 !important;
+            width: 100vw !important;
+            height: 72px !important;
+            min-height: 72px !important;
+            padding: 8px 8px 6px !important;
+            box-sizing: border-box !important;
+            background: #fff !important;
+            transform: translate3d(0,0,0);
+            -webkit-transform: translate3d(0,0,0);
+            will-change: transform;
+        }
+        .public-bottom-nav-items {
+            display: grid !important;
+            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+            width: 100%;
+        }
+        .public-bottom-nav-items > a {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 4px !important;
+            min-width: 0 !important;
+        }
+        @media(max-width: 1023px) { body { padding-bottom: 80px !important; } }
+        @media(max-width: 639px) {
+            .indicator-modal-shell { align-items: flex-end; padding: 0; }
+            .indicator-modal-panel { width: 100% !important; max-height: 92dvh !important; margin: 0 !important; border-radius: 28px 28px 0 0 !important; }
+            .indicator-chart-wrap { height: 280px; }
+        }
+        @media(min-width: 1024px) { .public-bottom-nav { display: none !important; } }
+        @media(prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+            * { scroll-behavior: auto !important; }
+        }
+    </style>
+</head>
+<body class="antialiased bg-[#fbfaf8] text-slate-800 pb-20 lg:pb-0 selection:bg-amber-500 selection:text-slate-950">
+
+    {{-- Top Navbar (Sticky / Freeze on scroll with shadow & blur) --}}
+    <header class="hidden lg:block sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="{{ route('landing') }}" class="flex items-center gap-3.5 group">
+                <img src="{{ asset('images/logo.png') }}" alt="Pemkab Nias Barat" class="w-10 h-10 object-contain transition-transform group-hover:scale-105">
+                <div class="h-8 w-px bg-slate-200/80"></div>
+                <div class="logo-shimmer-wrapper">
+                    <img src="{{ asset('images/logo-sicerah.png') }}" alt="SICERAH Nias Barat" class="h-11 w-auto max-w-[240px] object-contain transition-transform group-hover:scale-105">
+                </div>
+            </a>
+
+            <nav class="flex items-center gap-1.5" aria-label="Navigasi publik">
+                <a href="{{ route('landing') }}#fitur" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">Fitur Utama</a>
+                <a href="{{ route('landing') }}#indikator" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">Indikator</a>
+                <a href="{{ route('landing') }}#kinerja" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">Kinerja</a>
+                <a href="{{ route('webgis.index') }}" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">WebGIS</a>
+                <a href="{{ route('jdih.index') }}" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">JDIH</a>
+                <a href="{{ route('landing') }}#profil" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:bg-amber-50 hover:text-amber-800 transition">Profil</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="{{ route('login') }}" class="btn-primary btn-sm rounded-full px-5 py-2">Masuk Portal</a>
+            </div>
+        </div>
+    </header>
+
+    {{-- Mobile Top Header --}}
+    <div class="lg:hidden sticky top-0 z-50 h-16 px-4 flex items-center justify-between bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+        <a href="{{ route('landing') }}" class="flex items-center gap-2">
+            <img src="{{ asset('images/logo.png') }}" alt="Pemkab Nias Barat" class="w-8 h-8 object-contain">
+            <div class="logo-shimmer-wrapper">
+                <img src="{{ asset('images/logo-sicerah.png') }}" alt="SICERAH" class="h-8 w-auto max-w-[190px] object-contain">
+            </div>
+        </a>
+        <span class="text-[11px] font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/80">Portal</span>
+    </div>
+
+    <main>@yield('content')</main>
+
+    {{-- Footer --}}
+    <footer class="public-footer mt-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-4 mb-5">
+                    <img src="{{ asset('images/logo.png') }}" alt="Pemkab Nias Barat" class="w-12 h-12 object-contain">
+                    <div class="h-10 w-px bg-white/10"></div>
+                    <div class="logo-shimmer-wrapper logo-shimmer-dark">
+                        <img src="{{ asset('images/logo-sicerah-dark.png') }}" alt="SICERAH Nias Barat" class="h-12 w-auto max-w-[280px] object-contain">
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed max-w-2xl text-white/70">
+                    <span class="font-bold text-white block mb-1">SISTEM CERDAS INTEGRASI, KOORDINASI, EVALUASI, REKOMENDASI, ANALISIS, DAN HARMONISASI PEMBANGUNAN</span>
+                    Portal resmi Bappelitbangda Kabupaten Nias Barat untuk pemantauan capaian 119 indikator daerah, evaluasi renja terpadu, penyajian regulasi perencanaan, dan visualisasi spasial.
+                </p>
+                <div class="mt-6 flex flex-wrap gap-2 text-xs">
+                    <a href="{{ route('landing') }}#indikator" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 transition">Bank Data IKD</a>
+                    <a href="{{ route('webgis.index') }}" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 transition">WebGIS Nias Barat</a>
+                    <a href="{{ route('jdih.index') }}" class="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 transition">JDIH Perencanaan</a>
+                </div>
+            </div>
+            <div id="kontak">
+                <p class="text-xs font-bold uppercase tracking-[.2em] text-amber-400 mb-3.5">Kontak & Lokasi</p>
+                <p class="text-sm leading-relaxed text-white/80">Kompleks Perkantoran Bupati Nias Barat, Onolimbu, Lahomi</p>
+                <p class="text-sm mt-2 text-white/80">Kabupaten Nias Barat, Sumatera Utara</p>
+                <p class="text-sm mt-3 font-semibold text-white">bappelitbangda@niasbaratkab.go.id</p>
+            </div>
+        </div>
+        <div class="border-t border-white/10 px-5 py-5 text-center text-xs text-white/40">
+            © {{ date('Y') }} Pemerintah Kabupaten Nias Barat — Hak Cipta Dilindungi
+        </div>
+    </footer>
+
+    {{-- Bottom Navigation for Mobile --}}
+    <nav class="public-bottom-nav lg:hidden border-t border-slate-200 shadow-[0_-8px_30px_-18px_rgba(15,23,42,.3)]" aria-label="Navigasi bawah">
+        <div class="public-bottom-nav-items">
+            @php
+                $bottomNav = [
+                    ['label' => 'Beranda', 'href' => route('landing'), 'icon' => 'M3 11.5 12 4l9 7.5M5 10v10h14V10'],
+                    ['label' => 'Indikator', 'href' => route('landing').'#indikator', 'icon' => 'M4 19V9m5 10V5m5 14v-7m5 7V3'],
+                    ['label' => 'WebGIS', 'href' => route('webgis.index'), 'icon' => 'M9 18l-6 3V6l6-3m0 15 6 3m-6-3V3m6 18 6-3V3l-6 3m0 15V6'],
+                    ['label' => 'JDIH', 'href' => route('jdih.index'), 'icon' => 'M6 4h12v16H6zM9 8h6m-6 4h6m-6 4h4'],
+                    ['label' => 'Masuk', 'href' => route('login'), 'icon' => 'M10 17l5-5-5-5m5 5H3m11-9h6v18h-6'],
+                ];
+            @endphp
+            @foreach($bottomNav as $item)
+                <a href="{{ $item['href'] }}" class="flex flex-col items-center gap-1 text-[10px] font-bold text-slate-500 hover:text-amber-700 active:text-amber-700 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="{{ $item['icon'] }}"/></svg>
+                    <span>{{ $item['label'] }}</span>
+                </a>
+            @endforeach
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.reveal');
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+                elements.forEach((element) => element.classList.add('is-visible'));
+                return;
+            }
+            const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+                if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+            }), { threshold: .08 });
+            elements.forEach((element) => observer.observe(element));
+        });
+    </script>
+    @stack('scripts')
+</body>
+</html>

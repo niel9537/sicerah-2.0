@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+    body {
+        @apply bg-[#fbfaf6] text-slate-800 font-sans;
+        font-style: normal;
+    }
+    em, i {
+        font-style: normal;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-[#AD1D30]/20 disabled:opacity-50 disabled:cursor-not-allowed select-none;
+    }
+    /* Shared SICERAH maroon primary button */
+    .btn-primary {
+        @apply btn bg-gradient-to-r from-[#741421] via-[#AD1D30] to-[#AD1D30] text-white font-extrabold shadow-[0_4px_16px_rgba(173,29,48,0.35)] hover:shadow-[0_6px_22px_rgba(173,29,48,0.5)] hover:-translate-y-0.5 active:translate-y-0;
+    }
+    .btn-secondary {
+        @apply btn bg-white border border-slate-200/90 text-slate-700 shadow-sm hover:bg-amber-50/50 hover:border-amber-300 hover:text-amber-900;
+    }
+    .btn-danger {
+        @apply btn bg-red-600 text-white hover:bg-red-700 shadow-sm hover:shadow;
+    }
+    .btn-success {
+        @apply btn bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm hover:shadow;
+    }
+    .btn-sm {
+        @apply px-3.5 py-1.5 text-xs rounded-lg;
+    }
+    .btn-pill {
+        @apply rounded-full px-5 py-2.5;
+    }
+
+    .card {
+        @apply bg-white rounded-2xl shadow-card border border-slate-100/90 transition-all duration-200;
+    }
+    .card-hover {
+        @apply card hover:shadow-card-hover hover:-translate-y-0.5;
+    }
+
+    .input, .select, .textarea {
+        @apply w-full rounded-xl border-slate-200 shadow-sm
+               focus:border-amber-500 focus:ring-4 focus:ring-amber-100
+               placeholder:text-slate-400 text-sm transition-all;
+    }
+
+    .badge {
+        @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide;
+    }
+    .badge-success {
+        @apply badge bg-emerald-50 text-emerald-700 border border-emerald-200/60;
+    }
+    .badge-warning {
+        @apply badge bg-amber-50 text-amber-700 border border-amber-200/60;
+    }
+    .badge-danger {
+        @apply badge bg-red-50 text-red-700 border border-red-200/60;
+    }
+    .badge-info {
+        @apply badge bg-red-50 text-red-700 border border-red-200/60;
+    }
+    .badge-default {
+        @apply badge bg-slate-100 text-slate-700 border border-slate-200/60;
+    }
+    .badge-maroon {
+        @apply badge bg-amber-50 text-amber-900 border border-amber-300/80;
+    }
+
+    .table-modern {
+        @apply w-full text-sm text-left text-slate-700;
+    }
+    .table-modern thead {
+        @apply bg-slate-50/80 text-xs uppercase tracking-wider text-slate-500 font-semibold border-b border-slate-100;
+    }
+    .table-modern th {
+        @apply px-4 py-3.5 font-bold;
+    }
+    .table-modern tbody tr {
+        @apply border-b border-slate-100/80 hover:bg-amber-50/30 transition-colors duration-150;
+    }
+    .table-modern td {
+        @apply px-4 py-3.5 align-middle;
+    }
+
+    /* Sidebar styles inspired by EGOVERN dark theme + Gold accents */
+    .sidebar-link {
+        @apply flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-zinc-400 hover:bg-white/5 hover:text-white transition-all duration-150;
+    }
+    .sidebar-link-active {
+        @apply bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 text-slate-950 font-bold shadow-[0_4px_16px_rgba(217,119,6,0.38)] hover:!text-slate-950 hover:!bg-gradient-to-r;
+    }
+}
+
+/* =========================================================================
+   ANIMASI BERKILAU / SHIMMER GLOW UNTUK LOGO SICERAH
+   ========================================================================= */
+.logo-shimmer-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+.logo-shimmer-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 80%;
+    height: 200%;
+    background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(255, 230, 150, 0.75) 50%,
+        rgba(255, 255, 255, 0.85) 55%,
+        rgba(255, 255, 255, 0.05) 75%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(25deg);
+    animation: sicerahShimmer 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.logo-shimmer-dark::after {
+    background: linear-gradient(
+        105deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 215, 0, 0.15) 20%,
+        rgba(255, 235, 170, 0.85) 50%,
+        rgba(255, 255, 255, 0.95) 55%,
+        rgba(255, 215, 0, 0.2) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: sicerahShimmer 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes sicerahShimmer {
+    0% {
+        left: -160%;
+        opacity: 0;
+    }
+    12% {
+        opacity: 1;
+    }
+    38% {
+        left: 200%;
+        opacity: 0.85;
+    }
+    40%, 100% {
+        left: 200%;
+        opacity: 0;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    @apply w-2 h-2;
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-amber-200/80 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber-400;
+}
+
+em, i, .italic {
+    font-style: normal !important;
+}
+
+/* Admin navigation: red, gold, and black, matching the public portal. */
+.admin-sidebar{background:linear-gradient(165deg,#951c29 0%,#68121c 34%,#251216 72%,#121212 100%);border-right:1px solid #b98b32}
+.admin-sidebar>div:first-of-type{background:linear-gradient(110deg,#211315,#5c131d);border-bottom:1px solid #d4a01766}
+.admin-sidebar>div:last-of-type{background:#171112;border-top:1px solid #d4a01744}
+.admin-sidebar nav p{color:#e7c778}
+.admin-sidebar .sidebar-link{color:#f4dce0}
+.admin-sidebar .sidebar-link:not(.sidebar-link-active):hover{background:#bd283c77;color:#fff}
+.admin-sidebar .sidebar-link>span:first-child{color:#e3be65}
+.admin-sidebar .sidebar-link-active{background:linear-gradient(100deg,#b98620,#ffe095);color:#201408;box-shadow:0 4px 14px #12080840}
+.admin-sidebar .sidebar-link-active>span{color:#211509}
+
+/* Shared SICERAH identity across public, admin, and authentication layouts. */
+:root {
+    --sc-red:#AD1D30; --sc-red-dark:#861827; --sc-red-deep:#68121D;
+    --sc-gold:#D4A017; --sc-gold-light:#FFDA65; --sc-gold-ink:#946913;
+    --sc-ink:#21191A; --sc-bg:#FBF8F4; --sc-surface:#FFFFFF; --sc-border:#EBDDD3;
+    --sc-brand-gradient:linear-gradient(110deg,#68121D 0%,#AD1D30 60%,#861827 100%);
+}
+body{background-color:var(--sc-bg);color:var(--sc-ink)}
+::selection{background:var(--sc-gold-light);color:var(--sc-ink)}
+:focus-visible{outline:3px solid #D4A01799;outline-offset:3px}
+.btn-primary{background-image:var(--sc-brand-gradient);color:#fff;box-shadow:0 4px 16px #86182730}
+.btn-primary:hover{background-image:linear-gradient(110deg,#58101B,#951A2B);box-shadow:0 6px 22px #86182740}
+.btn-secondary{border-color:var(--sc-border);color:var(--sc-red-dark)}
+.btn-secondary:hover{background:#FFF7E6;border-color:var(--sc-gold);color:var(--sc-red-deep)}
+.card,.public-card{border-color:var(--sc-border)}
+.table-modern thead{background:#FFF5E8;color:var(--sc-red-deep);border-bottom-color:#E9D5B6}
+.table-modern tbody tr:hover{background:#FFFAF0}
+input:not([type=checkbox]):not([type=radio]):focus,select:focus,textarea:focus{border-color:var(--sc-gold);--tw-ring-color:#D4A01744}
+input[type=checkbox],input[type=radio]{color:var(--sc-red)}
+.admin-sidebar{background:var(--sc-brand-gradient);border-right:1px solid var(--sc-gold)}
+.admin-sidebar>div:first-of-type{background:linear-gradient(110deg,#58101B,#861827);border-bottom:1px solid #D4A01777}
+.admin-sidebar>div:last-of-type{background:#58101B;border-top:1px solid #D4A01766}
+.admin-sidebar nav p{color:#FFE0A3}
+.admin-sidebar .sidebar-link{color:#FFF1F2}
+.admin-sidebar .sidebar-link:not(.sidebar-link-active):hover{background:#FFF1F218;color:#FFDA65}
+.admin-sidebar .sidebar-link>span:first-child{color:#FFDA65}
+.admin-sidebar .sidebar-link-active{background:linear-gradient(110deg,#D4A017,#FFDA65);color:#241808;box-shadow:0 4px 14px #58101B44}
+.admin-sidebar .sidebar-link-active>span{color:#241808}
+.sicerah-admin-navbar{border-bottom:2px solid #D4A01766;background:#FFFDFC}
+.sicerah-admin-navbar h1{color:var(--sc-red-deep)}
+.sicerah-admin-footer{border-top:1px solid #D4A01766;background:#FFF7E9;color:var(--sc-red-deep)}
+.sicerah-footer{background:var(--sc-brand-gradient);border-color:var(--sc-gold)}
+.sicerah-footer h3,.sicerah-footer h4{color:var(--sc-gold-light)}
+.sicerah-footer p,.sicerah-footer li{color:#FFF0E1}
+.sicerah-footer a:hover{color:var(--sc-gold-light)}
+
+.sicerah-footer a{color:#FFF0E1}
+.sicerah-footer a:hover{color:var(--sc-gold-light)}

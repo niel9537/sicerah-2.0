@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  sidela-mysql:
+    image: mysql:8.0
+    container_name: sidela_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password_123
+      MYSQL_DATABASE: sidela_db
+      MYSQL_USER: sidela_user
+      MYSQL_PASSWORD: sidela_password_123
+      TZ: 'Asia/Jakarta'
+    ports:
+      - "3306:3306"
+    volumes:
+      - sidela_mysql_data:/var/lib/mysql
+      - ./schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./seeds.sql:/docker-entrypoint-initdb.d/02_seeds.sql:ro
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+  sidela-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: sidela_phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: sidela-mysql
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 64M
+    depends_on:
+      - sidela-mysql
+
+volumes:
+  sidela_mysql_data:

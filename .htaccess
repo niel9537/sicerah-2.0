@@ -1,0 +1,24 @@
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# For more information, read https://go.cpanel.net/EA4ModifyINI
+
+<IfModule php8_module>
+   php_value error_log "/home/bappeli4/logs/php.error.log"
+   php_flag log_errors On
+</IfModule>
+
+<IfModule lsapi_module>
+   php_value error_log "/home/bappeli4/logs/php.error.log"
+   php_flag log_errors On
+</IfModule>
+
+# END cPanel-generated php ini directives, do not edit
+
+
+# Laravel - arahkan domain utama ke folder public
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_URI} !^/public
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
