@@ -12,8 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('assets/sicerah-motion.css') }}?v={{ filemtime(public_path('assets/sicerah-motion.css')) }}">
 </head>
 <body class="antialiased bg-[#fbfaf8] text-slate-800 font-sans selection:bg-amber-500 selection:text-slate-950">
+    @include('layouts.partials.page-loader')
     <div x-data="{ sidebarOpen: false, profileOpen: false }" class="min-h-screen bg-[#fbfaf8]">
 
         {{-- ================= SIDEBAR ================= --}}
