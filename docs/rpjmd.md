@@ -1,5 +1,13 @@
 # Indikator RPJMD
 
+## Visi, misi, dan tujuan publik
+
+Navbar publik **RPJMD** membuka `/rpjmd/visi-misi`. Beranda dan halaman ini memakai komponen hierarki yang sama: satu visi serta lima kartu pasangan misi dan tujuan, berdampingan pada desktop dan bertumpuk pada ponsel.
+
+Super admin dapat mengedit melalui **CMS Portal → Kelola RPJMD** (`/dashboard/cms/rpjmd`). Form wajib berisi tepat lima pasangan. Data awal ada di `resources/data/rpjmd.json`, bersumber dari `rpjmd_Tabel_3.5.xls` (Tabel 3.5, Final RPJMD). Misi mengikuti urutan dalam kolom visi/misi; tujuan dipasangkan berdasarkan bidangnya karena urutan tujuan dalam tabel berbeda.
+
+Perubahan CMS disimpan secara atomik di `storage/app/private/rpjmd-content.json`; sertakan file ini dalam backup dan pertahankan direktori storage saat deployment. Tidak memerlukan migrasi atau perubahan data indikator.
+
 Menu **RPJMD dan Indikator → RPJMD 2025–2030** (`/rpjmd`) tersedia untuk super admin dan admin Bappeda.
 
 Sinkronisasi lima file asli:

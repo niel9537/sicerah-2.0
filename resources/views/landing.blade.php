@@ -689,30 +689,7 @@
 
         {{-- Visi & Misi Pemerintah Kabupaten Nias Barat 2025-2029 --}}
         <div id="visi-misi" class="mt-6 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div class="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-amber-100 pb-5 lg:pb-0 lg:pr-6">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#AD1D30] block mb-1">Visi Kabupaten Nias Barat 2025&ndash;2029</span>
-                    <h3 class="text-xl font-black text-[#191716] leading-snug mt-3">&ldquo;MEWUJUDKAN NIAS BARAT CERAH&rdquo;</h3>
-                    <p class="text-sm font-extrabold text-amber-700 mt-3">CERAH: Cerdas, Sejahtera, dan Sehat</p>
-                    <p class="text-xs text-slate-600 mt-4 leading-relaxed">Meningkatkan kualitas sumber daya manusia, kesejahteraan masyarakat, dan derajat kesehatan secara berkelanjutan.</p>
-                    <p class="text-xs text-slate-500 mt-4 leading-relaxed">Pemerintah Kabupaten Nias Barat, Provinsi Sumatera Utara, pada masa kepemimpinan Bupati Eliyunus Waruwu, S.Pt., M.Si.</p>
-                </div>
-                <div class="lg:col-span-2">
-                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#AD1D30] block mb-1">Lima Misi Pembangunan Daerah</span>
-                    <h3 class="text-lg font-black text-[#191716] mb-4">Misi Kabupaten Nias Barat 2025&ndash;2029</h3>
-                    <ol class="space-y-3">
-                        @foreach([
-                            'Meningkatkan kualitas sumber daya manusia guna mencetak insan cerdas, profesional, inovatif, berintegritas, dan bermoral tinggi.',
-                            'Mendorong pengembangan sistem ekonomi kerakyatan berbasis potensi lokal, sosial, dan budaya menuju masyarakat yang sejahtera.',
-                            'Mempercepat pembangunan infrastruktur dasar dan strategis sebagai fasilitas pendukung kesejahteraan masyarakat.',
-                            'Meningkatkan kualitas pelayanan kesehatan untuk mewujudkan masyarakat yang sehat jasmani dan rohani.',
-                            'Menyelenggarakan tata kelola pemerintahan yang akuntabel, efisien, dan berorientasi pada pelayanan publik.',
-                        ] as $misi)
-                        <li class="flex items-start gap-3 p-3 rounded-xl bg-amber-50/40 border border-amber-100"><span class="w-6 h-6 rounded-full bg-[#AD1D30] text-white flex items-center justify-center text-[11px] font-black shrink-0">{{ $loop->iteration }}</span><p class="text-xs text-slate-600 leading-relaxed">{{ $misi }}</p></li>
-                        @endforeach
-                    </ol>
-                </div>
-            </div>
+            @include('rpjmd._hierarchy', ['rpjmd' => app(\App\Services\RpjmdContent::class)->get()])
             <div class="mt-6 pt-5 border-t border-amber-100 text-xs text-slate-500 leading-relaxed">
                 <p class="font-bold text-[#191716] mb-1">Dasar Hukum</p>
                 <p>Peraturan Daerah Kabupaten Nias Barat Nomor 5 Tahun 2025 tentang Rencana Pembangunan Jangka Menengah Daerah Tahun 2025&ndash;2029, ditetapkan pada 19 Agustus 2025.</p>

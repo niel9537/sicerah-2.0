@@ -42,10 +42,11 @@
             ],
         ],
         [
-            'label' => 'CMS Publikasi',
+            'label' => 'CMS Portal',
             'roles' => ['super_admin'],
             'items' => [
                 ['label' => 'Kelola Publikasi', 'route' => 'cms.publications.index', 'icon' => 'document'],
+                ['label' => 'Kelola RPJMD', 'route' => 'cms.rpjmd.edit', 'icon' => 'book'],
             ],
         ],
         [

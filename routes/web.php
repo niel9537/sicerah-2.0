@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 // capaian IKU, dasbor kinerja ringkas, indikator makro daerah, JDIH, dan
 // profil Bappelitbangda kepada siapa saja tanpa perlu masuk ke sistem.
 Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/rpjmd/visi-misi', [\App\Http\Controllers\RpjmdContentController::class, 'show'])->name('publik.rpjmd');
 Route::get('/sitemap.xml', \App\Http\Controllers\SitemapController::class)->name('sitemap');
 Route::get('/api/cuaca/nias-barat', \App\Http\Controllers\WeatherController::class)->name('weather.nias-barat');
 Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->name('indikator.publik');
@@ -40,6 +41,8 @@ Route::view('/kinerja/iku-opd', 'public.empty', ['title' => 'IKU OPD', 'section'
 Route::get('/publikasi', [\App\Http\Controllers\PublicationController::class, 'index'])->name('publik.publikasi');
 Route::get('/publikasi/{publication}', [\App\Http\Controllers\PublicationController::class, 'show'])->name('publik.publikasi.show');
 Route::middleware(['auth', 'role:super_admin'])->prefix('dashboard/cms')->name('cms.')->group(function () {
+    Route::get('/rpjmd', [\App\Http\Controllers\RpjmdContentController::class, 'edit'])->name('rpjmd.edit');
+    Route::put('/rpjmd', [\App\Http\Controllers\RpjmdContentController::class, 'update'])->name('rpjmd.update');
     Route::resource('publications', \App\Http\Controllers\PublicationAdminController::class)->except('show');
 });
 
