@@ -1,5 +1,4 @@
 ---
 deployment:
   tasks:
-    - /bin/mkdir -p /home/niasbaratkabgo/sicerah-deploy-test
-    - /bin/cp composer.json /home/niasbaratkabgo/sicerah-deploy-test/composer.json
+    - /bin/bash deploy/sync-production.sh
