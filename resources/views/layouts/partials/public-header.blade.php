@@ -33,6 +33,7 @@
             <a class="portal-nav-item {{ request()->routeIs('publik.publikasi*') ? 'is-active' : '' }}" href="{{ route('publik.publikasi') }}">@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>Publikasi</span></a>
             <a class="portal-nav-item {{ request()->routeIs('bps.*') ? 'is-active' : '' }}" href="{{ route('bps.index') }}">@include('layouts.partials.public-icon', ['icon' => 'chart'])<span>Data BPS</span></a>
             <a class="portal-nav-item portal-mobile-account" href="{{ auth()->check() ? route('dashboard') : route('login') }}">{{ auth()->check() ? 'Dashboard' : 'Masuk' }}</a>
+            @include('layouts.partials.weather')
         </div>
     </nav>
     <div class="portal-motivation" role="region" aria-label="Motivasi perencanaan pembangunan">
