@@ -26,10 +26,10 @@
     const started = performance.now();
     show();
     const ready = () => {
-        hideTimer = window.setTimeout(hide, Math.max(0, (firstVisit && !reducedMotion ? 1100 : 0) - (performance.now() - started)));
+        hideTimer = window.setTimeout(hide, Math.max(0, 0 - (performance.now() - started)));
     };
-    if (document.readyState === 'complete') ready();
-    else window.addEventListener('load', ready, { once: true });
+    if (document.readyState !== 'loading') ready();
+    else document.addEventListener('DOMContentLoaded', ready, { once: true });
     window.addEventListener('pageshow', (event) => { if (event.persisted) hide(); });
     document.addEventListener('click', (event) => {
         if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -48,4 +48,33 @@
         const destination = new URL(event.submitter?.formAction || form.action, location.href);
         if (destination.origin === location.origin) show();
     });
+})();
+
+// Component skeletons are removed as soon as the parsed page is ready.
+(() => {
+    const root = document.documentElement;
+    root.classList.add('sc-components-loading');
+    const finish = () => {
+        root.classList.remove('sc-components-loading');
+        document.querySelectorAll('main').forEach(main => main.removeAttribute('aria-busy'));
+        const watchImage = image => {
+            if (image.complete) return;
+            image.classList.add('sc-image-loading');
+            const done = () => image.classList.remove('sc-image-loading');
+            image.addEventListener('load', done, { once: true });
+            image.addEventListener('error', done, { once: true });
+        };
+        document.querySelectorAll('img').forEach(watchImage);
+        new MutationObserver(records => records.forEach(record => {
+            if (record.type === 'attributes') watchImage(record.target);
+            record.addedNodes.forEach(node => {
+                if (node.nodeType !== 1) return;
+                if (node.matches('img')) watchImage(node);
+                node.querySelectorAll('img').forEach(watchImage);
+            });
+        })).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'srcset'] });
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', finish, { once: true });
+    else finish();
+    window.addEventListener('pageshow', () => root.classList.remove('sc-components-loading'));
 })();

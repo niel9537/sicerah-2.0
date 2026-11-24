@@ -23,3 +23,22 @@
 @keyframes sc-logo-breathe{50%{transform:scale(1.035);filter:drop-shadow(0 10px 24px #d4a01730)}}
 @keyframes sc-loading{0%{transform:translateX(-110%)}100%{transform:translateX(330%)}}
 @media(prefers-reduced-motion:reduce){.sc-loader,.sc-loader-content,.portal-nav-item,.portal-nav-item:before,.portal-dropdown a,.sidebar-link,.portal-login,.portal-nav-item .portal-icon,.sidebar-link svg{transition:none!important;transform:none!important}.sc-loader-logo,.sc-loader-logo:after,.sc-loader-track:after,.logo-shimmer-wrapper:after{animation:none!important}.sc-loader-logo:after{display:none}}
+/* Shared skeletons preserve each component's dimensions while loading. */
+html.sc-components-loading main :is(h1,h2,h3,h4,p,td,th,label,input,select,textarea,canvas),
+.sc-skeleton,.sc-image-loading {
+    color: transparent !important;
+    background: linear-gradient(100deg,#e8e5e1 20%,#f7f5f2 45%,#e8e5e1 70%) !important;
+    background-size: 220% 100% !important;
+    animation: sc-skeleton-shimmer 1.5s linear infinite;
+    border-color: transparent !important;
+    border-radius: 6px;
+    box-shadow: none !important;
+}
+html.sc-components-loading main :is(h1,h2,h3,h4,p,td,th,label) > *,
+html.sc-components-loading main :is(canvas,svg) { visibility: hidden; }
+html.sc-components-loading main { pointer-events: none; }
+.sc-image-loading { opacity: .55; }
+@keyframes sc-skeleton-shimmer { to { background-position: -220% 0; } }
+@media(prefers-reduced-motion:reduce) {
+    html.sc-components-loading main *, .sc-skeleton,.sc-image-loading { animation:none !important; }
+}
