@@ -41,18 +41,11 @@ if (empty($slides)) {
         <button class="portal-slide-arrow next" @click="slide = (slide + 1) % total" aria-label="Sorotan berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
         <div class="portal-slide-dots">@foreach($slides as $slide)<button @click="slide = {{ $loop->index }}" :class="{ 'is-active': slide === {{ $loop->index }} }" :aria-pressed="slide === {{ $loop->index }}" aria-label="Tampilkan sorotan {{ $loop->iteration }}"></button>@endforeach</div>
         @endif
-        <nav class="portal-hero-shortcuts" aria-label="Akses cepat data dan dokumen">
-            @foreach([
-                ['Data BPS', route('bps.index'), 'chart'],
-                ['IKD', route('indikator.publik', ['jenis' => 'IKD']), 'chart'],
-                ['WebGIS', route('webgis.index'), 'map'],
-                ['RPJMD', route('publik.rpjmd'), 'publication'],
-                ['JDIH', route('jdih.index'), 'law'],
-                ['Publikasi & Berita', route('publik.publikasi'), 'publication'],
-            ] as [$label, $url, $icon])
-            <a href="{{ $url }}">@include('layouts.partials.public-icon', ['icon' => $icon])<span>{{ $label }}</span></a>
-            @endforeach
-        </nav>
+        <div class="portal-hero-clouds" aria-hidden="true">
+            <svg class="portal-cloud portal-cloud-one" viewBox="0 0 640 240" focusable="false"><path d="M76 208C-4 208-10 111 65 98 58 38 148 15 181 69 213-12 338-6 363 83 421 31 502 65 501 122 599 90 656 199 566 215 439 234 190 229 76 208Z" fill="white"/></svg>
+            <svg class="portal-cloud portal-cloud-two" viewBox="0 0 640 240" focusable="false"><path d="M53 210C-9 196 3 125 63 119 42 58 132 27 172 76 202 4 302 8 333 87 387 50 451 73 463 126 539 84 630 123 617 184 607 232 389 226 309 226 208 227 110 226 53 210Z" fill="white"/></svg>
+            <svg class="portal-cloud portal-cloud-three" viewBox="0 0 640 240" focusable="false"><path d="M76 208C-4 208-10 111 65 98 58 38 148 15 181 69 213-12 338-6 363 83 421 31 502 65 501 122 599 90 656 199 566 215 439 234 190 229 76 208Z" fill="white"/></svg>
+        </div>
         <svg class="portal-hero-curve" viewBox="0 0 1920 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0 Q960 220 1920 0 V120 H0 Z" fill="#fff"/></svg>
     </div>
     <div class="portal-service-connections" aria-labelledby="portal-connections-title">
