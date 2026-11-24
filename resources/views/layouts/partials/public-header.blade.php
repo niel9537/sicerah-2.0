@@ -7,7 +7,7 @@
         ['label' => 'JDIH', 'icon' => 'law', 'active' => request()->routeIs('jdih.*'), 'links' => [['Dokumen Hukum', route('jdih.index')]]],
     ];
 @endphp
-<header class="portal-header" x-data="{ mobile: false, scrolled: window.scrollY > 40 }" :class="{ 'is-scrolled': scrolled }" @scroll.window.throttle.100ms="scrolled = window.scrollY > 40">
+<header class="portal-header" x-data="{ mobile: false }">
     <div class="portal-masthead">
         <a class="portal-brand" href="{{ route('landing') }}"><img src="{{ asset('images/logo.png') }}" alt="Lambang Kabupaten Nias Barat"><span><strong>BAPPELITBANGDA</strong><b>Kabupaten Nias Barat</b></span></a>
         <div class="portal-identity"><span>Badan Perencanaan Pembangunan,<br>Penelitian dan Pengembangan Daerah</span></div><a class="portal-sicerah logo-shimmer-wrapper" href="{{ route('landing') }}"><img src="{{ asset('images/logo-sicerah.png') }}" alt="SICERAH"></a>
