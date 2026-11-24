@@ -212,3 +212,10 @@ html{scroll-padding-top:240px}
 
 /* Clean documentary photo behind the mission cards, at 30% opacity. */
 .mission-landscape:before{display:block;content:'';position:absolute;inset:0;z-index:0;background:url('/images/mission-community-clean.jpg') center/cover no-repeat;opacity:.3;pointer-events:none}
+
+/* Lift the people in the background and reveal another 10% of each card. */
+.mission-landscape:before{background-position:center calc(50% - 120px)}
+.mission-card{transform:translateY(calc(75px - 10%))}
+.mission-card:hover,.mission-card:focus-visible{transform:translateY(calc(-55px - 10%))}
+@media(max-width:1099px){.mission-landscape:before{background-position:center calc(50% - 90px)}.mission-card{transform:translateY(calc(45px - 10%))}}
+@media(max-width:639px){.mission-landscape:before{background-position:center calc(50% - 60px)}.mission-card{transform:translateY(calc(35px - 10%))}.mission-card:hover,.mission-card:focus-visible{transform:translateY(calc(-25px - 10%))}}
