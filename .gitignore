@@ -2,3 +2,9 @@
 # Private BPS credential (never deploy or commit)
 /storage/app/private/bps-api-key
 /storage/app/private/bps-ca-bundle.pem
+
+# Local Python spatial application
+/.venv-spasial/
+/tools/spasial-python/data/
+__pycache__/
+.pytest_cache/
