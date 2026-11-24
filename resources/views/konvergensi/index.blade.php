@@ -10,6 +10,9 @@
     @if($error)
         <div class="bps-state" role="alert"><h2>Data konvergensi belum dapat dimuat</h2><p>{{ $error }}</p><a class="btn-primary" href="{{ route('konvergensi.index', ['tahun' => $year]) }}">Coba Lagi</a></div>
     @else
+        @if($data['is_fallback'] ?? false)
+        <div class="konvergensi-notice" role="status"><strong>Menampilkan data cadangan terakhir.</strong> Koneksi langsung ke Kemendagri belum berhasil. Tabel berasal dari pengambilan resmi pada {{ \Carbon\Carbon::parse($data['retrieved_at'])->timezone('Asia/Jakarta')->format('d/m/Y H:i') }} WIB. Data terbaru akan dicoba kembali saat halaman dibuka.</div>
+        @endif
         <div class="bps-result-meta"><p>Data Kabupaten Nias Barat dan {{ count($data['subdistricts']) }} kecamatan</p><span>Diambil dari sumber: {{ \Carbon\Carbon::parse($data['retrieved_at'])->timezone('Asia/Jakarta')->format('d/m/Y H:i') }} WIB</span></div>
         <div class="bps-grid">
             <article class="bps-card"><div class="bps-card-content"><span class="bps-category">PROGRES KABUPATEN</span><h2>Kabupaten Nias Barat</h2><p class="bps-value">{{ $data['district']['cells'][22] !== '' ? $data['district']['cells'][22].'%' : 'Belum tersedia' }}</p><p class="bps-description">Progres aksi konvergensi menurut e-Monev Kemendagri.</p></div></article>

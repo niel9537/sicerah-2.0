@@ -41,6 +41,26 @@ class KonvergensiService
     {
         if (!isset(self::PERIODS[$year])) throw new RuntimeException('Tahun data tidak tersedia.');
 
+        $store = Cache::store(config('services.konvergensi.cache_store', 'file'));
+        try {
+            $data = $this->liveDashboard($year);
+            $store->put('konvergensi:last-good:'.self::DISTRICT.':'.$year, $data, now()->addDays(90));
+            return $data + ['is_fallback' => false];
+        } catch (RuntimeException $exception) {
+            $data = $store->get('konvergensi:last-good:'.self::DISTRICT.':'.$year);
+            if (!$data) {
+                $directory = config('services.konvergensi.snapshot_path', resource_path('data/konvergensi'));
+                $file = $directory.'/'.$year.'.json';
+                $data = is_file($file) ? json_decode(file_get_contents($file), true) : null;
+            }
+            if (!is_array($data) || ($data['year'] ?? null) !== $year || empty($data['district']['cells']) || empty($data['retrieved_at'])) throw $exception;
+            return $data + ['is_fallback' => true];
+        }
+    }
+
+    private function liveDashboard(int $year): array
+    {
+
         return Cache::store(config('services.konvergensi.cache_store', 'file'))
             ->remember('konvergensi:v1:'.self::DISTRICT.':'.$year, now()->addHour(), function () use ($year) {
                 $period = self::PERIODS[$year];
@@ -64,7 +84,7 @@ class KonvergensiService
     {
         try {
             $response = Http::acceptJson()->withHeaders(['X-Requested-With' => 'XMLHttpRequest'])
-                ->connectTimeout(5)->timeout(20)->withOptions([
+                ->connectTimeout(3)->timeout(8)->withOptions([
                     'allow_redirects' => false,
                     'verify' => config('services.konvergensi.ca_bundle') ?: true,
                 ])

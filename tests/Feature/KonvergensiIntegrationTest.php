@@ -13,7 +13,8 @@ class KonvergensiIntegrationTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        config(['services.konvergensi.cache_store' => 'array', 'session.driver' => 'array']);
+        config(['services.konvergensi.cache_store' => 'array', 'session.driver' => 'array',
+            'services.konvergensi.snapshot_path' => base_path('tests/Fixtures/no-snapshots')]);
         Cache::store('array')->flush();
         Http::preventStrayRequests();
         $this->withoutVite();
@@ -105,5 +106,27 @@ class KonvergensiIntegrationTest extends TestCase
         $this->get(route('konvergensi.index'))->assertStatus(503);
         Http::fake(['*' => Http::response([], 500)]);
         $this->get(route('konvergensi.index'))->assertStatus(503);
+    }
+
+    public function test_verified_snapshot_keeps_tables_visible_during_source_outage(): void
+    {
+        config(['services.konvergensi.snapshot_path' => resource_path('data/konvergensi')]);
+        Http::fake(fn () => throw new ConnectionException('upstream unavailable'));
+        $this->get(route('konvergensi.index'))->assertOk()->assertSee('data cadangan terakhir')
+            ->assertSee('Sirombu')->assertSee('47.2%')->assertSee('Tabel Rincian Kecamatan');
+    }
+
+    public function test_last_success_is_preserved_and_refresh_recovers_after_outage(): void
+    {
+        $this->fakeSource();
+        $data = app(KonvergensiService::class)->dashboard(2026);
+        Cache::store('array')->forget('konvergensi:v1:1225:2026');
+        Http::swap(new \Illuminate\Http\Client\Factory());
+        Http::fake(fn () => throw new ConnectionException('upstream unavailable'));
+        $fallback = app(KonvergensiService::class)->dashboard(2026);
+        $this->assertTrue($fallback['is_fallback']);
+        $this->assertSame($data['retrieved_at'], $fallback['retrieved_at']);
+        $this->fakeSource();
+        $this->assertFalse(app(KonvergensiService::class)->dashboard(2026)['is_fallback']);
     }
 }
