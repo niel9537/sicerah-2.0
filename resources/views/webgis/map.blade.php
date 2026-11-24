@@ -12,7 +12,7 @@
 <section class="relative overflow-hidden text-white bg-[#741421]">
     {{-- Background Panorama Nias Barat --}}
     <div class="absolute inset-0 z-0">
-        <img src="{{ asset('images/nias-panorama-hero-clean.jpg') }}" alt="Panorama Kabupaten Nias Barat" class="w-full h-full object-cover object-center filter brightness-[0.40] contrast-[1.12] transform scale-105">
+        <img src="{{ asset('images/spasial-hero.jpg') }}" alt="Dermaga dan perahu di laut biru Nias Barat" class="w-full h-full object-cover object-center filter brightness-[0.40] contrast-[1.12] transform scale-105">
         {{-- Overlay Gradasi Navy (#741421) ke Merah Tua & Vignet --}}
         <div class="absolute inset-0 bg-gradient-to-r from-[#741421]/95 via-[#741421]/80 to-[#68121D]/75 mix-blend-multiply"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#741421] via-transparent to-transparent opacity-90"></div>
