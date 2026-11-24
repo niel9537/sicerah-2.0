@@ -688,7 +688,7 @@
         </div>
 
         {{-- Visi & Misi Pemerintah Kabupaten Nias Barat 2025-2029 --}}
-        <div id="visi-misi" class="mt-6 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xs">
+        <div id="visi-misi" class="mt-6">
             @php
                 $rpjmd = app(\App\Services\RpjmdContent::class)->get();
                 $hierarchyRows = app(\App\Services\RpjmdHierarchy::class)->present($rpjmd);
