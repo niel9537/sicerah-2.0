@@ -27,11 +27,25 @@
         </dialog>
     @endforeach
     </div></div>
+    <div class="mission-sea-front" aria-hidden="true"></div>
 </section>
 @once
 @push('scripts')
 <script>
 (() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && !reducedMotion) {
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-emerging');
+            observer.unobserve(entry.target);
+        }), { threshold: 0.12 });
+        document.querySelectorAll('.mission-landscape').forEach(section => {
+            section.classList.add('mission-reveal-ready');
+            observer.observe(section);
+            section.addEventListener('focusin', () => section.classList.add('is-emerging'), { once: true });
+        });
+    }
     let trigger, previousOverflow;
     const close = dialog => { dialog.close(); };
     document.querySelectorAll('[data-mission]').forEach(button => button.addEventListener('click', () => {
