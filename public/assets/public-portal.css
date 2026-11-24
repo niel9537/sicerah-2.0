@@ -209,3 +209,6 @@ html{scroll-padding-top:240px}
     .mission-card>p{font-size:11px;line-height:1.65}
     .mission-card-link{font-size:10px}
 }
+
+/* Clean documentary photo behind the mission cards, at 30% opacity. */
+.mission-landscape:before{display:block;content:'';position:absolute;inset:0;z-index:0;background:url('/images/mission-community-clean.jpg') center/cover no-repeat;opacity:.3;pointer-events:none}
