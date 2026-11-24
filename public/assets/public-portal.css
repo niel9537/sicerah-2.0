@@ -198,7 +198,14 @@ html{scroll-padding-top:240px}
 @media(max-width:1099px){.mission-inner{padding-bottom:200px}.mission-sea-front{width:130%;left:-15%;clip-path:none}.mission-card{min-height:380px;transform:translateY(45px)}.mission-intro{margin-bottom:65px}}
 @media(max-width:639px){.mission-inner{padding-bottom:150px}.mission-intro{margin-bottom:35px}.mission-grid{padding-bottom:80px}.mission-sea-front{width:1100px;left:calc(50% - 550px);clip-path:none}.mission-card{transform:translateY(35px);min-height:390px}.mission-card:hover,.mission-card:focus-visible{transform:translateY(-25px)}}
 
-/* Preserve the sea overlap; only mission five clears the right-hand forest. */
-.mission-inner,.mission-grid{z-index:auto}
-.mission-card:last-of-type,.mission-card:last-of-type:hover,.mission-card:last-of-type:focus-visible{z-index:4}
+/* Five narrower cards fit to the left of the foreground forest. */
+.mission-inner{z-index:1}
+.mission-grid{z-index:1}
 .mission-sea-front{z-index:3}
+@media(min-width:1100px){
+    .mission-grid{width:76%;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .mission-card{min-width:0;padding-left:13px;padding-right:13px}
+    .mission-card h3{font-size:15px;overflow-wrap:anywhere}
+    .mission-card>p{font-size:11px;line-height:1.65}
+    .mission-card-link{font-size:10px}
+}
