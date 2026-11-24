@@ -1,0 +1,60 @@
+{
+  "districts": [
+    {
+      "idkab": "1225",
+      "progres": 47,
+      "nama": "1225-Kab. Nias Barat",
+      "tabel": "<tr><td>Kab. Nias Barat</td><td class='text-center'>105</td><td class='text-center'>105</td><td class='text-center'>105</td><td class='text-center'>105</td><td class='text-center'>105</td><td class='text-center'>30</td><td class='text-center'>16</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'>9</td><td class='text-center'>9</td><td class='text-center'>79</td><td class='text-center'>28</td><td class='text-center'>65</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'></td><td class='text-center'>47.2</td></tr>"
+    }
+  ],
+  "subdistricts": [
+    {
+      "idkec": "1225010",
+      "progres": 31,
+      "nama": "Sirombu",
+      "tabel": "<tr><td>Sirombu</td><td class='text-center'>25</td><td class='text-center'>25</td><td class='text-center'>25</td><td class='text-center'>25</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>25</td><td class='text-center'>5</td><td class='text-center'>25</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>31.25</td></tr>"
+    },
+    {
+      "idkec": "1225020",
+      "progres": 25,
+      "nama": "Lahomi",
+      "tabel": "<tr><td>Lahomi</td><td class='text-center'>11</td><td class='text-center'>11</td><td class='text-center'>11</td><td class='text-center'>11</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>6</td><td class='text-center'>3</td><td class='text-center'></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>25</td></tr>"
+    },
+    {
+      "idkec": "1225030",
+      "progres": 50,
+      "nama": "Ulu Moro o",
+      "tabel": "<tr><td>Ulu Moro o</td><td class='text-center'>5</td><td class='text-center'>5</td><td class='text-center'>5</td><td class='text-center'>5</td><td class='text-center'>31</td><td class='text-center'>Belum</td><td class='text-center'>22</td><td class='text-center'></td>\n<td class='text-center'>1</td><td class='text-center'>5</td><td class='text-center'>5</td><td class='text-center'></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>50</td></tr>"
+    },
+    {
+      "idkec": "1225040",
+      "progres": 31,
+      "nama": "Lolofitu Moi",
+      "tabel": "<tr><td>Lolofitu Moi</td><td class='text-center'>8</td><td class='text-center'>8</td><td class='text-center'>8</td><td class='text-center'>8</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>8</td><td class='text-center'></td><td class='text-center'>8</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>31.25</td></tr>"
+    },
+    {
+      "idkec": "1225050",
+      "progres": 52,
+      "nama": "Mandrehe Utara",
+      "tabel": "<tr><td>Mandrehe Utara</td><td class='text-center'>12</td><td class='text-center'>12</td><td class='text-center'>12</td><td class='text-center'>12</td><td class='text-center'>9</td><td class='text-center'>Sudah</td><td class='text-center'>5</td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>12</td><td class='text-center'>11</td><td class='text-center'>12</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>51.81</td></tr>"
+    },
+    {
+      "idkec": "1225060",
+      "progres": 38,
+      "nama": "Mandrehe",
+      "tabel": "<tr><td>Mandrehe</td><td class='text-center'>20</td><td class='text-center'>20</td><td class='text-center'>20</td><td class='text-center'>20</td><td class='text-center'>31</td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>20</td><td class='text-center'></td><td class='text-center'>20</td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>37.5</td></tr>"
+    },
+    {
+      "idkec": "1225070",
+      "progres": 19,
+      "nama": "Mandrehe Barat",
+      "tabel": "<tr><td>Mandrehe Barat</td><td class='text-center'>14</td><td class='text-center'>14</td><td class='text-center'>14</td><td class='text-center'>14</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'></td><td class='text-center'></td><td class='text-center'></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>18.75</td></tr>"
+    },
+    {
+      "idkec": "1225080",
+      "progres": 19,
+      "nama": "Moro o",
+      "tabel": "<tr><td>Moro o</td><td class='text-center'>10</td><td class='text-center'>10</td><td class='text-center'>10</td><td class='text-center'>10</td><td class='text-center'></td><td class='text-center'>Belum</td><td class='text-center'></td><td class='text-center'></td>\n<td class='text-center'></td><td class='text-center'>3</td><td class='text-center'>4</td><td class='text-center'></td><td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>0</td>\n<td class='text-center'>0</td><td class='text-center'>0</td><td class='text-center'>18.75</td></tr>"
+    }
+  ]
+}

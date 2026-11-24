@@ -24,6 +24,12 @@ return [
             ? storage_path('app/private/bps-ca-bundle.pem') : null),
     ],
 
+    'konvergensi' => [
+        'cache_store' => env('KONVERGENSI_CACHE_STORE', 'file'),
+        'ca_bundle' => env('KONVERGENSI_CA_BUNDLE', is_file(storage_path('app/private/bps-ca-bundle.pem'))
+            ? storage_path('app/private/bps-ca-bundle.pem') : null),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

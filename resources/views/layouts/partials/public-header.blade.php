@@ -31,9 +31,10 @@
             </div>
             @endforeach
             <div class="portal-nav-group" x-data="{ open: false, dataOpen: false }" @click.outside="open = false; dataOpen = false" @keydown.escape.window="open = false; dataOpen = false">
-                <button type="button" class="portal-nav-item {{ request()->routeIs('publik.publikasi*', 'bps.*', 'publik.rpjmd') ? 'is-active' : '' }}" @click="open = !open; if (!open) dataOpen = false" :aria-expanded="open" aria-controls="portal-publications-menu">@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>Publikasi</span></button>
+                <button type="button" class="portal-nav-item {{ request()->routeIs('publik.publikasi*', 'bps.*', 'publik.rpjmd', 'konvergensi.index') ? 'is-active' : '' }}" @click="open = !open; if (!open) dataOpen = false" :aria-expanded="open" aria-controls="portal-publications-menu">@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>Publikasi</span></button>
                 <div id="portal-publications-menu" class="portal-dropdown" x-show="open" x-cloak x-transition>
                     <a href="{{ route('publik.publikasi') }}" @if(request()->routeIs('publik.publikasi*')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>Publikasi &amp; Berita</a>
+                    <a href="{{ route('konvergensi.index') }}" @if(request()->routeIs('konvergensi.index')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>Konvergensi Stunting</a>
                     <button type="button" class="portal-dropdown-toggle" @click="dataOpen = !dataOpen" :aria-expanded="dataOpen" aria-controls="portal-publications-data"><span class="portal-menu-dot" aria-hidden="true"></span>Data <span class="portal-chevron" :class="{ 'rotated': dataOpen }" aria-hidden="true">&#8964;</span></button>
                     <div id="portal-publications-data" class="portal-nested-links" x-show="dataOpen" x-cloak x-transition>
                         <a href="{{ route('bps.index') }}" @if(request()->routeIs('bps.*')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>Data BPS</a>

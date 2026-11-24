@@ -35,6 +35,7 @@ Route::get('/api/cuaca/nias-barat', \App\Http\Controllers\WeatherController::cla
 Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->name('indikator.publik');
 require __DIR__.'/webgis.php';
 Route::get('/bps', [\App\Http\Controllers\BpsController::class, 'index'])->name('bps.index');
+Route::get('/konvergensi-stunting', [\App\Http\Controllers\KonvergensiController::class, 'index'])->name('konvergensi.index');
 Route::get('/bps/tabel/{id}', [\App\Http\Controllers\BpsController::class, 'table'])->whereNumber('id')->name('bps.table');
 
 Route::view('/struktur-hierarki', 'public.empty', ['title' => 'Struktur Hierarki', 'section' => 'Struktur Hierarki'])->name('publik.struktur');
