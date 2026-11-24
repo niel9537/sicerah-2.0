@@ -117,3 +117,16 @@ html{scroll-padding-top:240px}
 .portal-service-arrow{width:17px;height:17px;color:var(--sc-red-dark);flex-shrink:0}
 @media(max-width:1099px){.portal-service-connections{flex-direction:column;align-items:stretch;gap:15px}.portal-connections-heading{flex-basis:auto}.portal-connections-links{flex:auto}}
 @media(max-width:767px){.portal-service-connections{padding:16px 13px;margin-top:12px;border-radius:15px}.portal-connections-links{gap:10px}.portal-service-link{flex-direction:column;align-items:flex-start;gap:10px;padding:13px;position:relative}.portal-service-logo{height:35px;width:45px}.portal-service-logo-sipd{width:87px}.portal-service-text strong{font-size:10px}.portal-service-text span{font-size:9px}.portal-service-arrow{position:absolute;right:10px;top:14px;width:15px;height:15px}.portal-connections-heading h2{font-size:12px}.portal-connections-heading p{font-size:10px}}
+
+/* Footer shares the navigation palette and keeps only essential information. */
+.portal-footer{margin-top:64px;background:var(--sc-brand-gradient,linear-gradient(100deg,#6b101b,#b51d2c 60%,#80121d));color:#fff;border-top:2px solid var(--sc-gold,#d4a017)}
+.portal-footer-inner{max-width:1280px;margin:auto;padding:28px 32px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.portal-footer-brand{display:flex;align-items:center;gap:12px;color:#fff;flex-shrink:0}
+.portal-footer-brand img{object-fit:contain}
+.portal-footer-brand strong{display:block;font-size:13px;font-weight:800;letter-spacing:.03em}
+.portal-footer-brand span span{display:block;font-size:12px;color:#fff0dd;margin-top:3px}
+.portal-footer-description{font-size:12px;line-height:1.7;flex:1;min-width:200px;color:#fff0dd}
+.portal-footer-address{font-size:12px;line-height:1.7;color:#fff0dd}
+.portal-footer-bottom{border-top:1px solid #ffffff26;padding:14px 24px;text-align:center;font-size:11px;color:#fff0dd}
+.portal-footer a:focus-visible{outline:2px solid #ffda65;outline-offset:5px}
+@media(max-width:639px){.portal-footer{margin-top:40px}.portal-footer-inner{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:14px}.portal-footer-description{flex:auto;min-width:0}}

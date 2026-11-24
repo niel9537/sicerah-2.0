@@ -131,84 +131,17 @@
     <main>@yield('content')</main>
 
     {{-- Footer Berwarna Navy (#191716) dengan Aksen Emas & Motif Budaya Nias --}}
-    <footer class="sicerah-footer mt-24 bg-[#191716] text-white border-t-2 border-[#D4A017] relative overflow-hidden">
-        {{-- Background Ornament Motif Khas Nias --}}
-        <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(circle at 20% 30%, #D4A017 1px, transparent 1px), radial-gradient(circle at 80% 70%, #D4A017 1px, transparent 1px); background-size: 32px 32px;"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
-                {{-- Kolom 1 & 2: Identitas Pemkab & SICERAH --}}
-                <div class="lg:col-span-2 space-y-3">
-                    <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/logo.png') }}" alt="Pemkab Nias Barat" class="w-11 h-11 object-contain drop-shadow">
-                        <div class="leading-tight">
-                            <p class="font-black text-white text-[13px] tracking-tight uppercase">BAPPELITBANGDA</p>
-                            <p class="font-semibold text-slate-300 text-xs">Kabupaten Nias Barat</p>
-                        </div>
-                        <div class="h-9 w-px bg-white/20 mx-1"></div>
-                        <div class="logo-shimmer-wrapper logo-shimmer-dark">
-                            <img src="{{ asset('images/logo-sicerah-dark.png') }}" alt="SICERAH" class="h-10 w-auto max-w-[200px] object-contain">
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-300 leading-relaxed font-normal">
-                        <span class="font-bold text-[#FFDA65] block mb-0.5">SISTEM CERDAS INTEGRASI, KOORDINASI, EVALUASI, REKOMENDASI, ANALISIS, DAN HARMONISASI PEMBANGUNAN</span>
-                        Portal integrasi data perencanaan, evaluasi kinerja pembangunan, dan geospasial resmi Bappelitbangda Kabupaten Nias Barat.
-                    </p>
-                </div>
-
-                {{-- Kolom 3: Data Terbuka --}}
-                <div class="flex items-start gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-white/10 text-[#FFDA65] flex items-center justify-center shrink-0 border border-white/15">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3M4 7c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3M4 12c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-extrabold text-white text-xs tracking-wide">Data Terbuka</h4>
-                        <p class="text-[11px] text-slate-300 mt-1 leading-normal">
-                            Akses data pembangunan daerah yang terbuka, terstandar, dan akuntabel.
-                        </p>
-                    </div>
-                </div>
-
-                {{-- Kolom 4: Transparansi & Perencanaan Berbasis Data --}}
-                <div class="flex items-start gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-white/10 text-[#FFDA65] flex items-center justify-center shrink-0 border border-white/15">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-extrabold text-white text-xs tracking-wide">Transparansi</h4>
-                        <p class="text-[11px] text-slate-300 mt-1 leading-normal">
-                            Mendorong akuntabilitas tata kelola dan keterbukaan informasi publik.
-                        </p>
-                    </div>
-                </div>
-
-                {{-- Kolom 5: Alamat Kantor & Siluet Budaya Nias --}}
-                <div class="flex items-start gap-3 relative">
-                    <div class="w-9 h-9 rounded-xl bg-white/10 text-[#FFDA65] flex items-center justify-center shrink-0 border border-white/15">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-extrabold text-white text-xs tracking-wide">Kantor Bappelitbangda</h4>
-                        <p class="text-[11px] text-slate-300 mt-1 leading-normal">
-                            Lahomi, Kabupaten Nias Barat<br>
-                            Provinsi Sumatera Utara
-                        </p>
-                    </div>
-                    <img src="{{ asset('images/ref-footer-house.png') }}" alt="Budaya Nias" class="hidden xl:block absolute right-0 -bottom-2 w-24 h-auto opacity-20 pointer-events-none select-none">
-                </div>
-            </div>
-
-            {{-- Bottom copyright line --}}
-            <div class="mt-8 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
-                <p>© {{ date('Y') }} Pemerintah Kabupaten Nias Barat — Hak Cipta Dilindungi.</p>
-                <div class="flex items-center gap-4">
-                    <a href="{{ route('landing') }}#indikator" class="hover:text-[#FFDA65] transition">Bank Data IKD</a>
-                    <span>•</span>
-                    <a href="{{ route('webgis.index') }}" class="hover:text-[#FFDA65] transition">Peta WebGIS</a>
-                    <span>•</span>
-                    <a href="{{ route('jdih.index') }}" class="hover:text-[#FFDA65] transition">JDIH Perencanaan</a>
-                </div>
-            </div>
+    <footer class="sicerah-footer portal-footer">
+        <div class="portal-footer-inner">
+            <a class="portal-footer-brand" href="{{ route('landing') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Lambang Kabupaten Nias Barat" width="44" height="44">
+                <span><strong>BAPPELITBANGDA</strong><span>Kabupaten Nias Barat</span></span>
+            </a>
+            <p class="portal-footer-description">SICERAH &middot; Portal data dan perencanaan pembangunan daerah.</p>
+            <p class="portal-footer-address">Lahomi, Nias Barat, Sumatera Utara</p>
+        </div>
+        <div class="portal-footer-bottom">
+            <p>&copy; {{ date('Y') }} Pemerintah Kabupaten Nias Barat</p>
         </div>
     </footer>
 
