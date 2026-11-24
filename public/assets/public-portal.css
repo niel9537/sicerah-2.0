@@ -220,5 +220,5 @@ html{scroll-padding-top:240px}
 @media(max-width:1099px){.mission-landscape:before{background-position:center calc(50% - 90px)}.mission-card{transform:translateY(calc(45px - 10%))}}
 @media(max-width:639px){.mission-landscape:before{background-position:center calc(50% - 60px)}.mission-card{transform:translateY(calc(35px - 10%))}.mission-card:hover,.mission-card:focus-visible{transform:translateY(calc(-25px - 10%))}}
 
-/* Crop the upper fifth of the background photo inside the section. */
-.mission-landscape:before{inset:-25% 0 0;background-position:center top;background-size:cover}
+/* Keep the existing crop and shift the photo another 20% of the section upward. */
+.mission-landscape:before{inset:-45% 0 20%;background-position:center top;background-size:cover}
