@@ -25,6 +25,25 @@ if (empty($slides)) {
         @foreach($slides as $slide)
         <article class="portal-slide" x-show="slide === {{ $loop->index }}" x-transition.opacity.duration.500ms @if(!$loop->first) x-cloak @endif>
             <img class="portal-hero-image" src="{{ $slide['image_url'] }}" alt="{{ $slide['title'] }}" @if($loop->first) fetchpriority="high" @else loading="lazy" @endif>
+            @if(empty($carouselPublications) || $carouselPublications->isEmpty())
+            {{-- Animate only the existing cloud pixels in the original photo coordinates. --}}
+            <svg class="portal-photo-clouds" viewBox="0 0 2172 724" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+                <defs>
+                    <radialGradient id="hero-cloud-feather"><stop offset="55%" stop-color="white"/><stop offset="100%" stop-color="black"/></radialGradient>
+                    <mask id="hero-photo-cloud-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="2172" height="724">
+                        <ellipse cx="605" cy="77" rx="155" ry="64" fill="url(#hero-cloud-feather)"/>
+                        <ellipse cx="1670" cy="110" rx="230" ry="78" fill="url(#hero-cloud-feather)"/>
+                    </mask>
+                    <filter id="hero-photo-cloud-motion" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB">
+                        <feTurbulence type="fractalNoise" baseFrequency=".007 .012" numOctaves="2" seed="8" result="cloud-flow"/>
+                        <feDisplacementMap in="SourceGraphic" in2="cloud-flow" scale="0" xChannelSelector="R" yChannelSelector="G">
+                            <animate attributeName="scale" values="0;22;0;-16;0" dur="24s" repeatCount="indefinite"/>
+                        </feDisplacementMap>
+                    </filter>
+                </defs>
+                <g mask="url(#hero-photo-cloud-mask)"><image href="{{ $slide['image_url'] }}" width="2172" height="724" preserveAspectRatio="none" filter="url(#hero-photo-cloud-motion)"/></g>
+            </svg>
+            @endif
             <div class="portal-hero-overlay" aria-hidden="true"></div>
             <div class="portal-hero-copy"><span class="portal-hero-tag"><span aria-hidden="true">&#9638;</span> {{ $slide['tag'] }}</span>
                 <h1>{{ $slide['title'] }}
@@ -41,11 +60,6 @@ if (empty($slides)) {
         <button class="portal-slide-arrow next" @click="slide = (slide + 1) % total" aria-label="Sorotan berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
         <div class="portal-slide-dots">@foreach($slides as $slide)<button @click="slide = {{ $loop->index }}" :class="{ 'is-active': slide === {{ $loop->index }} }" :aria-pressed="slide === {{ $loop->index }}" aria-label="Tampilkan sorotan {{ $loop->iteration }}"></button>@endforeach</div>
         @endif
-        <div class="portal-hero-clouds" aria-hidden="true">
-            <svg class="portal-cloud portal-cloud-one" viewBox="0 0 640 240" focusable="false"><path d="M76 208C-4 208-10 111 65 98 58 38 148 15 181 69 213-12 338-6 363 83 421 31 502 65 501 122 599 90 656 199 566 215 439 234 190 229 76 208Z" fill="white"/></svg>
-            <svg class="portal-cloud portal-cloud-two" viewBox="0 0 640 240" focusable="false"><path d="M53 210C-9 196 3 125 63 119 42 58 132 27 172 76 202 4 302 8 333 87 387 50 451 73 463 126 539 84 630 123 617 184 607 232 389 226 309 226 208 227 110 226 53 210Z" fill="white"/></svg>
-            <svg class="portal-cloud portal-cloud-three" viewBox="0 0 640 240" focusable="false"><path d="M76 208C-4 208-10 111 65 98 58 38 148 15 181 69 213-12 338-6 363 83 421 31 502 65 501 122 599 90 656 199 566 215 439 234 190 229 76 208Z" fill="white"/></svg>
-        </div>
         <svg class="portal-hero-curve" viewBox="0 0 1920 120" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 0 Q960 220 1920 0 V120 H0 Z" fill="#fff"/></svg>
     </div>
     <div class="portal-service-connections" aria-labelledby="portal-connections-title">
