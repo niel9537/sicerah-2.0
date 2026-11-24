@@ -26,7 +26,7 @@ if (empty($slides)) {
         <article class="portal-slide" x-show="slide === {{ $loop->index }}" x-transition.opacity.duration.500ms @if(!$loop->first) x-cloak @endif>
             <img class="portal-hero-image" src="{{ $slide['image_url'] }}" alt="{{ $slide['title'] }}" @if($loop->first) fetchpriority="high" @else loading="lazy" @endif>
             @if(empty($carouselPublications) || $carouselPublications->isEmpty())
-            {{-- Animate only the existing cloud pixels in the original photo coordinates. --}}
+            {{-- Isolate the original clouds and foliage so the building stays still. --}}
             <svg class="portal-photo-clouds" viewBox="0 0 2172 724" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
                 <defs>
                     <radialGradient id="hero-cloud-feather"><stop offset="55%" stop-color="white"/><stop offset="100%" stop-color="black"/></radialGradient>
@@ -34,14 +34,27 @@ if (empty($slides)) {
                         <ellipse cx="605" cy="77" rx="155" ry="64" fill="url(#hero-cloud-feather)"/>
                         <ellipse cx="1670" cy="110" rx="230" ry="78" fill="url(#hero-cloud-feather)"/>
                     </mask>
+                    <mask id="hero-photo-tree-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="2172" height="724">
+                        <ellipse cx="170" cy="330" rx="185" ry="155" fill="url(#hero-cloud-feather)"/>
+                        <ellipse cx="420" cy="230" rx="150" ry="95" fill="url(#hero-cloud-feather)"/>
+                        <ellipse cx="1965" cy="325" rx="185" ry="135" fill="url(#hero-cloud-feather)"/>
+                        <ellipse cx="1795" cy="245" rx="105" ry="85" fill="url(#hero-cloud-feather)"/>
+                    </mask>
                     <filter id="hero-photo-cloud-motion" x="-10%" y="-20%" width="120%" height="140%" color-interpolation-filters="sRGB">
                         <feTurbulence type="fractalNoise" baseFrequency=".007 .012" numOctaves="2" seed="8" result="cloud-flow"/>
                         <feDisplacementMap in="SourceGraphic" in2="cloud-flow" scale="0" xChannelSelector="R" yChannelSelector="G">
-                            <animate attributeName="scale" values="0;22;0;-16;0" dur="24s" repeatCount="indefinite"/>
+                            <animate attributeName="scale" values="0;30;8;-22;0" dur="20s" calcMode="spline" keyTimes="0;.25;.5;.75;1" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" repeatCount="indefinite"/>
+                        </feDisplacementMap>
+                    </filter>
+                    <filter id="hero-photo-tree-motion" x="-5%" y="-10%" width="110%" height="120%" color-interpolation-filters="sRGB">
+                        <feTurbulence type="fractalNoise" baseFrequency=".012 .025" numOctaves="2" seed="5" result="tree-wind"/>
+                        <feDisplacementMap in="SourceGraphic" in2="tree-wind" scale="0" xChannelSelector="R" yChannelSelector="G">
+                            <animate attributeName="scale" values="0;14;-10;18;0" dur="7s" calcMode="spline" keyTimes="0;.25;.5;.75;1" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" repeatCount="indefinite"/>
                         </feDisplacementMap>
                     </filter>
                 </defs>
                 <g mask="url(#hero-photo-cloud-mask)"><image href="{{ $slide['image_url'] }}" width="2172" height="724" preserveAspectRatio="none" filter="url(#hero-photo-cloud-motion)"/></g>
+                <g mask="url(#hero-photo-tree-mask)"><image href="{{ $slide['image_url'] }}" width="2172" height="724" preserveAspectRatio="none" filter="url(#hero-photo-tree-motion)"/></g>
             </svg>
             @endif
             <div class="portal-hero-overlay" aria-hidden="true"></div>
