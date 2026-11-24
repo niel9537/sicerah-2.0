@@ -13,6 +13,7 @@ CATEGORIES = {
     "government": ("Pemerintah", "#7c3aed", "purple"),
     "school": ("Sekolah", "#2563eb", "blue"),
     "health": ("Fasilitas kesehatan", "#dc2626", "red"),
+    "unclassified": ("Bangunan / fungsi belum diketahui", "#64748b", "gray"),
 }
 ENDPOINTS = (
     "https://overpass-api.de/api/interpreter",
@@ -144,15 +145,15 @@ def download(progress=None):
 def validate_geojson(data):
     if not isinstance(data, dict) or data.get("type") != "FeatureCollection" or not isinstance(data.get("features"), list):
         raise ValueError("Unggah GeoJSON FeatureCollection.")
-    if len(data["features"]) > 20000:
-        raise ValueError("Maksimal 20.000 fitur per berkas.")
+    if len(data["features"]) > 100000:
+        raise ValueError("Maksimal 100.000 fitur per berkas.")
     result = {**data, "features": []}
     for feature in data["features"]:
         if not isinstance(feature, dict):
             raise ValueError("Setiap objek harus berupa GeoJSON Feature.")
         props = feature.get("properties") or {}
         if not isinstance(props, dict) or not isinstance(props.get("category"), str) or props["category"] not in CATEGORIES:
-            raise ValueError("Setiap fitur harus memiliki category: government, school, atau health.")
+            raise ValueError("Setiap fitur harus memiliki category: government, school, health, atau unclassified.")
         try:
             geom = shape(feature.get("geometry"))
         except (ValueError, TypeError, KeyError, AttributeError, GEOSException) as error:
