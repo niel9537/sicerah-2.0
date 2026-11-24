@@ -219,3 +219,6 @@ html{scroll-padding-top:240px}
 .mission-card:hover,.mission-card:focus-visible{transform:translateY(calc(-55px - 10%))}
 @media(max-width:1099px){.mission-landscape:before{background-position:center calc(50% - 90px)}.mission-card{transform:translateY(calc(45px - 10%))}}
 @media(max-width:639px){.mission-landscape:before{background-position:center calc(50% - 60px)}.mission-card{transform:translateY(calc(35px - 10%))}.mission-card:hover,.mission-card:focus-visible{transform:translateY(calc(-25px - 10%))}}
+
+/* Crop the upper fifth of the background photo inside the section. */
+.mission-landscape:before{inset:-25% 0 0;background-position:center top;background-size:cover}
