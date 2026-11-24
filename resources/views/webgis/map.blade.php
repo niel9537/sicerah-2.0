@@ -77,19 +77,18 @@
         <div class="wg-surface-controls">
             <label for="wg-basemap">Peta permukaan
                 <select id="wg-basemap">
+                    <option value="street">Peta Jalan (OpenStreetMap)</option>
                     <option value="satellite">Satelit - Bangunan dan Jalan</option>
                     <option value="dsm">DSM - Warna Ketinggian</option>
                     <option value="relief">DSM - Relief Permukaan</option>
-                    <option value="street">Peta Jalan</option>
                 </select>
             </label>
             <button type="button" class="wg-button" id="wg-detail">Zoom Detail Bangunan</button>
             <label class="wg-overlay-control"><input type="checkbox" id="wg-thematic"> Tampilkan indikator pembangunan</label>
         </div>
-        <div id="wg-satellite-info" class="wg-dsm-info">
+        <div id="wg-satellite-info" class="wg-dsm-info" hidden>
             <strong>Citra satelit - bangunan, jalan, dan tutupan lahan</strong>
             <p>Perbesar ke desa atau lokasi yang ingin dilihat. Detail rumah mengikuti resolusi citra di lokasi tersebut. Tampilan ini berupa foto dari atas (2D).</p>
-            <button type="button" id="wg-detail" class="wg-button">Perbesar objek di tengah peta</button>
         </div>
         <div id="wg-dsm-info" class="wg-dsm-info" hidden>
             <strong>Digital Surface Model - ASTER GDEM</strong>
@@ -98,6 +97,20 @@
             <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-astgtm-003" target="_blank" rel="noopener noreferrer">Sumber: NASA / METI ASTER GDEM</a>
         </div>
         <p id="wg-basemap-status" class="wg-basemap-status" role="status" aria-live="polite"></p>
+        <section class="wg-facilities" aria-labelledby="wg-facilities-title" data-url="{{ route('webgis.facilities') }}" id="wg-facilities">
+            <strong id="wg-facilities-title">Bangunan dan Fasilitas Publik</strong>
+            <div class="wg-facility-filters">
+                <label><input type="checkbox" value="government" checked> <span class="wg-chip" style="background:#7c3aed"></span>Pemerintah <span id="wg-count-government">0</span></label>
+                <label><input type="checkbox" value="school" checked> <span class="wg-chip" style="background:#2563eb"></span>Sekolah <span id="wg-count-school">0</span></label>
+                <label><input type="checkbox" value="health" checked> <span class="wg-chip" style="background:#dc2626"></span>Kesehatan <span id="wg-count-health">0</span></label>
+                <button type="button" id="wg-facility-fit" class="wg-button" disabled>Lihat Semua Fasilitas</button>
+                <button type="button" id="wg-facility-retry" class="wg-button" hidden>Coba Lagi</button>
+            </div>
+            <p id="wg-facility-status" role="status" aria-live="polite">Memuat fasilitas publik...</p>
+            <p>Warna membedakan fungsi fasilitas. Poligon menunjukkan tapak bangunan atau area fasilitas sesuai data sumber; titik menunjukkan lokasi tanpa tapak terpetakan. Cakupan seluruh Kabupaten Nias Barat; terpisah dari filter wilayah dan tahun indikator. Data sumber belum tentu lengkap.</p>
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Sumber: OpenStreetMap contributors (ODbL)</a>
+            <div id="wg-facility-list" class="wg-facility-list" aria-label="Daftar fasilitas publik"></div>
+        </section>
         {{-- Filter Bar --}}
         <div class="wg-filters">
             <label>
@@ -151,5 +164,5 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="{{ asset('assets/webgis/map.js') . '?v=satellite-2' }}"></script>
+<script src="{{ asset('assets/webgis/map.js') . '?v=facilities-3' }}"></script>
 @endsection

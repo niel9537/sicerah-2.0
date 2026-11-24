@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebgisController;
 use App\Http\Controllers\WebgisAdminController;
+Route::get('/webgis/fasilitas', \App\Http\Controllers\WebgisFacilityController::class)->name('webgis.facilities');
 Route::get('/webgis', [WebgisController::class, 'index'])->name('webgis.index');
 Route::get('/webgis/tema/{theme}/data', [WebgisController::class, 'data'])->whereNumber('theme')->name('webgis.data');
 Route::get('/dashboard/webgis', [WebgisController::class, 'dashboard'])->middleware('auth')->name('webgis.dashboard');
