@@ -16,7 +16,7 @@ if (empty($slides)) {
         'description' => 'SICERAH mengintegrasikan data perencanaan, kinerja, dan informasi spasial untuk pembangunan Kabupaten Nias Barat yang transparan dan akuntabel.',
         'button' => 'Jelajahi Data',
         'url' => route('indikator.publik'),
-        'image_url' => asset('images/bappelitbangda-office-hero.jpg'),
+        'image_url' => asset('images/bappelitbangda-hero.png'),
     ]];
 }
 @endphp
