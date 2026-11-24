@@ -11,6 +11,7 @@
        ========================================================================= --}}
     @include('landing._portal-hero')
     @include('landing._about-sicerah')
+    @include('landing._konvergensi')
     @include('landing._bps-publications')
 
 

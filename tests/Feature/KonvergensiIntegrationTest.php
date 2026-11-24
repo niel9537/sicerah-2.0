@@ -116,6 +116,31 @@ class KonvergensiIntegrationTest extends TestCase
             ->assertSee('Sirombu')->assertSee('47.2%')->assertSee('Tabel Rincian Kecamatan');
     }
 
+    public function test_home_summary_uses_same_region_data_and_preserves_fallback_status(): void
+    {
+        $this->fakeSource();
+        $this->getJson(route('konvergensi.summary'))->assertOk()->assertJsonPath('progress', '47.2')
+            ->assertJsonPath('villages', '105')->assertJsonPath('subdistricts', 8)
+            ->assertJsonPath('is_fallback', false)->assertJsonPath('year', 2026);
+        Cache::store('array')->flush();
+        config(['services.konvergensi.snapshot_path' => resource_path('data/konvergensi')]);
+        Http::swap(new \Illuminate\Http\Client\Factory());
+        Http::fake(fn () => throw new ConnectionException('upstream unavailable'));
+        $this->getJson(route('konvergensi.summary'))->assertOk()->assertJsonPath('is_fallback', true);
+    }
+
+    public function test_home_section_renders_link_and_loads_data_without_blocking_home_render(): void
+    {
+        $this->view('landing._konvergensi')->assertSee('Aksi Konvergensi Penurunan Stunting')
+            ->assertSee(route('konvergensi.index'), false)->assertSee('Lihat Data &amp; Tabel', false)
+            ->assertSee('Data cadangan terakhir');
+        Http::assertNothingSent();
+        Http::fake(fn () => throw new ConnectionException('private connection details'));
+        $this->getJson(route('konvergensi.summary'))->assertStatus(503)
+            ->assertJsonPath('message', 'Ringkasan konvergensi belum dapat dimuat.')
+            ->assertDontSee('private connection details');
+    }
+
     public function test_last_success_is_preserved_and_refresh_recovers_after_outage(): void
     {
         $this->fakeSource();

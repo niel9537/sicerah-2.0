@@ -36,6 +36,7 @@ Route::get('/indikator-publik', [PublicIndikatorController::class, 'index'])->na
 require __DIR__.'/webgis.php';
 Route::get('/bps', [\App\Http\Controllers\BpsController::class, 'index'])->name('bps.index');
 Route::get('/konvergensi-stunting', [\App\Http\Controllers\KonvergensiController::class, 'index'])->name('konvergensi.index');
+Route::get('/api/konvergensi-stunting/ringkasan', [\App\Http\Controllers\KonvergensiController::class, 'summary'])->name('konvergensi.summary');
 Route::get('/bps/tabel/{id}', [\App\Http\Controllers\BpsController::class, 'table'])->whereNumber('id')->name('bps.table');
 
 Route::view('/struktur-hierarki', 'public.empty', ['title' => 'Struktur Hierarki', 'section' => 'Struktur Hierarki'])->name('publik.struktur');
