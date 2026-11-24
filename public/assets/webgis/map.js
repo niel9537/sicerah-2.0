@@ -4,9 +4,25 @@ const $ = id => document.getElementById('wg-' + id);
 if (!$('map')) return;
 if (!window.L) { $('status').textContent = 'Leaflet gagal dimuat. Periksa koneksi ke unpkg.com lalu muat ulang halaman.'; return; }
 const map = L.map($('map')).setView([1.0,97.45],10);
-const tiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-let tileFailed=false;
-tiles.on('tileerror',()=>{if(!tileFailed){tileFailed=true;$('source').textContent+=' • Peta dasar gagal dimuat; batas desa tetap bisa dilihat.';}});
+const attribution='ASTER GDEM ? NASA/METI ? <a href="https://www.earthdata.nasa.gov/data/tools/gibs">NASA GIBS</a>';
+const gibs='https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/';
+const basemaps={
+ dsm:L.tileLayer(gibs+'ASTER_GDEM_Color_Index/default/GoogleMapsCompatible_Level12/{z}/{y}/{x}.png',{maxNativeZoom:12,maxZoom:19,attribution}),
+ relief:L.tileLayer(gibs+'ASTER_GDEM_Color_Shaded_Relief/default/GoogleMapsCompatible_Level12/{z}/{y}/{x}.jpeg',{maxNativeZoom:12,maxZoom:19,attribution}),
+ street:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'? <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
+};
+let activeBasemap=basemaps.dsm;
+activeBasemap.addTo(map);
+Object.values(basemaps).forEach(base=>base.on('tileerror',()=>{
+ if(base===activeBasemap) $('basemap-status').textContent='Peta dasar gagal dimuat. Pilih peta lain atau periksa koneksi internet.';
+}));
+$('basemap').addEventListener('change',()=>{
+ map.removeLayer(activeBasemap);activeBasemap=basemaps[$('basemap').value];
+ $('basemap-status').textContent='';activeBasemap.addTo(map);
+ $('dsm-info').hidden=$('basemap').value==='street';
+ $('dsm-legend').hidden=$('basemap').value!=='dsm';
+});
+L.control.scale({imperial:false}).addTo(map);
 let payload, layer, controller, sequence=0;
 function option(value, text) { const o=document.createElement('option');o.value=value;o.textContent=text;return o; }
 function villages() {
@@ -22,7 +38,7 @@ function render() {
  function number(code) { const v=payload.values[code];return v===null||v===undefined?null:Number(v); }
  function color(v){if(v===null)return '#cbd5e1';let i=payload.theme.breaks.findIndex(b=>v<=b);return payload.theme.colors[i<0?payload.theme.colors.length-1:i];}
  if(layer) map.removeLayer(layer);
- layer=L.geoJSON({type:'FeatureCollection',features},{style:f=>({fillColor:color(number(f.properties.kode_desa)),fillOpacity:.75,color:'#ffffff',weight:1.3}),onEachFeature:(f,l)=>{
+ layer=L.geoJSON({type:'FeatureCollection',features},{style:f=>({fillColor:color(number(f.properties.kode_desa)),fillOpacity:$('thematic').checked?.65:0,color:'#ffffff',weight:1.3}),onEachFeature:(f,l)=>{
   const code=f.properties.kode_desa,d=master[code],v=number(code),box=document.createElement('div');
   const title=document.createElement('strong');title.textContent=d.nama_desa;box.append(title);
   [d.nama_kecamatan,code,`${payload.theme.name} • ${payload.year}`,v===null?'Belum ada data':`${v.toLocaleString('id-ID',{maximumFractionDigits:4})} ${payload.theme.unit}`].forEach(text=>{const p=document.createElement('div');p.textContent=text;box.append(p);});
@@ -38,9 +54,9 @@ function render() {
  if(layer.getBounds().isValid()) map.fitBounds(layer.getBounds(),{padding:[20,20],maxZoom:14});
  const filled=features.filter(f=>number(f.properties.kode_desa)!==null).length;
  $('status').textContent=`${payload.theme.name} • ${payload.year} • ${filled} dari ${features.length} ${payload.education_mode?'kecamatan':'desa'} memiliki data`;
- $('legend').replaceChildren();
+ $('legend').replaceChildren();$('legend').hidden=!$('thematic').checked;
  [...payload.theme.colors,'#cbd5e1'].forEach((c,i)=>{const item=document.createElement('span'),chip=document.createElement('span');chip.className='wg-chip';chip.style.background=c;item.append(chip);const b=payload.theme.breaks;item.append(document.createTextNode(i===payload.theme.colors.length?'Belum ada data':i===0?`≤ ${b[0]}`:i===b.length?`> ${b[i-1]}`:`> ${b[i-1]} – ${b[i]}`));$('legend').append(item);});
- $('source').textContent=`Satuan: ${payload.theme.unit}. Sumber: ${payload.theme.source||'Belum diisi'}. ${payload.theme.description||''}${tileFailed?' • Peta dasar gagal dimuat; batas desa tetap bisa dilihat.':''}`;
+ $('source').textContent=`Satuan: ${payload.theme.unit}. Sumber: ${payload.theme.source||'Belum diisi'}. ${payload.theme.description||''}`;
 }
 async function load(reset=false) {
  const current=++sequence;
@@ -48,7 +64,7 @@ async function load(reset=false) {
  const timeout=setTimeout(()=>active.abort(),20000);
  $('status').textContent='Memuat data…';$('retry').hidden=true;
  $('year').disabled=true;$('kec').disabled=true;$('desa').disabled=true;
- if(layer){map.removeLayer(layer);layer=null;}payload=null;$('legend').replaceChildren();$('source').textContent='';
+ if(layer){map.removeLayer(layer);layer=null;}payload=null;$('legend').replaceChildren();$('legend').hidden=!$('thematic').checked;$('source').textContent='';
  try {
   const url=new URL($('theme').value);if(!reset&&$('year').value&& !payload?.education_mode && /^\d{4}$/.test($('year').value))url.searchParams.set('year',$('year').value);
   const res=await fetch(url,{signal:active.signal,headers:{Accept:'application/json'},credentials:'same-origin'});
@@ -60,6 +76,7 @@ async function load(reset=false) {
  } catch(e) { if(current!==sequence)return;$('status').textContent=(e.name==='AbortError'?'Permintaan melewati 20 detik.':e.message)+'. Klik Coba lagi.';$('retry').hidden=false; }
  finally {clearTimeout(timeout);if(current===sequence){$('year').disabled=!payload||!!payload.education_mode;$('kec').disabled=!payload;$('desa').disabled=!payload||!!payload.education_mode;}}
 }
+$('thematic').addEventListener('change',()=>{if(layer) layer.setStyle({fillOpacity:$('thematic').checked?.65:0});$('legend').hidden=!$('thematic').checked;});
 $('theme').addEventListener('change',()=>{ $('kec').value='';$('desa').value='';load(true); });
 $('year').addEventListener('change',()=>load());$('kec').addEventListener('change',()=>{$('desa').value='';villages();render();});$('desa').addEventListener('change',render);$('retry').addEventListener('click',()=>load(true));load(true);
 })();

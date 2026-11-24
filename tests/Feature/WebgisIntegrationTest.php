@@ -19,6 +19,13 @@ class WebgisIntegrationTest extends TestCase {
         $this->seed(\Database\Seeders\WebgisSeeder::class);
         $this->withoutVite();
     }
+    public function test_public_map_offers_dsm_and_optional_thematic_overlay(): void {
+        $this->get(route('webgis.index'))->assertOk()
+            ->assertSee('id="wg-basemap"', false)
+            ->assertSee('DSM ? Warna Ketinggian')
+            ->assertSee('id="wg-thematic"', false)
+            ->assertSee('aster-gdem-legend.svg');
+    }
     private function user(string $role): User { return User::create(['nama'=>'Test','email'=>$role.'@example.test','password'=>'test-only-password','role'=>$role]); }
     public function test_seed_and_rerun_preserve_values(): void {
         $this->assertDatabaseCount('webgis_desa',105); $this->assertDatabaseCount('webgis_values',18);

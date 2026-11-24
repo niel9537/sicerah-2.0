@@ -164,4 +164,5 @@
 .leaflet-popup-content strong {
     color: #741421;
 }
+.wg-surface-controls{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:1rem}.wg-surface-controls label{font-size:13px;font-weight:700;color:#741421}.wg-surface-controls select{display:block;margin-top:6px;border:1px solid #cbd5e1;border-radius:10px;padding:10px;max-width:100%;background:#fff}.wg-overlay-control{display:flex;align-items:center;gap:8px}.wg-dsm-info{padding:14px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;margin-bottom:16px;font-size:12px;color:#164e63}.wg-dsm-info p{margin:6px 0}.wg-dsm-info img{max-width:100%;height:auto;background:#fff;border-radius:6px}.wg-dsm-info a{text-decoration:underline}.wg-basemap-status{font-size:12px;color:#9f1239}.wg-container [hidden]{display:none!important}
 </style>

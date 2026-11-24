@@ -74,6 +74,23 @@
     @endif
 
     <div class="wg-card">
+        <div class="wg-surface-controls">
+            <label for="wg-basemap">Peta permukaan
+                <select id="wg-basemap">
+                    <option value="dsm">DSM ? Warna Ketinggian</option>
+                    <option value="relief">DSM ? Relief Permukaan</option>
+                    <option value="street">Peta Jalan</option>
+                </select>
+            </label>
+            <label class="wg-overlay-control"><input type="checkbox" id="wg-thematic"> Tampilkan indikator pembangunan</label>
+        </div>
+        <div id="wg-dsm-info" class="wg-dsm-info">
+            <strong>Digital Surface Model ? ASTER GDEM</strong>
+            <p>Ketinggian permukaan termasuk vegetasi dan bangunan. Visualisasi regional dari NASA GIBS; detail tampilan tersedia hingga zoom 12. Memperbesar peta tidak menambah detail elevasi.</p>
+            <img id="wg-dsm-legend" src="{{ asset('images/aster-gdem-legend.svg') }}" alt="Legenda ketinggian ASTER GDEM dalam meter" width="378" height="86">
+            <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-astgtm-003" target="_blank" rel="noopener noreferrer">Sumber: NASA / METI ASTER GDEM</a>
+        </div>
+        <p id="wg-basemap-status" class="wg-basemap-status" role="status" aria-live="polite"></p>
         {{-- Filter Bar --}}
         <div class="wg-filters">
             <label>
@@ -127,5 +144,5 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="{{ asset('assets/webgis/map.js') }}"></script>
+<script src="{{ asset('assets/webgis/map.js') . '?v=dsm-1' }}"></script>
 @endsection
