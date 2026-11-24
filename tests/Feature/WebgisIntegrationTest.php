@@ -22,9 +22,11 @@ class WebgisIntegrationTest extends TestCase {
     public function test_public_map_offers_dsm_and_optional_thematic_overlay(): void {
         $this->get(route('webgis.index'))->assertOk()
             ->assertSee('id="wg-basemap"', false)
-            ->assertSee('DSM ? Warna Ketinggian')
+            ->assertSee('DSM - Warna Ketinggian')
             ->assertSee('id="wg-thematic"', false)
-            ->assertSee('aster-gdem-legend.svg');
+            ->assertSee('aster-gdem-legend.svg')
+            ->assertSee('Satelit - Bangunan dan Jalan')
+            ->assertSee('id="wg-detail"', false);
     }
     private function user(string $role): User { return User::create(['nama'=>'Test','email'=>$role.'@example.test','password'=>'test-only-password','role'=>$role]); }
     public function test_seed_and_rerun_preserve_values(): void {

@@ -4,14 +4,15 @@ const $ = id => document.getElementById('wg-' + id);
 if (!$('map')) return;
 if (!window.L) { $('status').textContent = 'Leaflet gagal dimuat. Periksa koneksi ke unpkg.com lalu muat ulang halaman.'; return; }
 const map = L.map($('map')).setView([1.0,97.45],10);
-const attribution='ASTER GDEM ? NASA/METI ? <a href="https://www.earthdata.nasa.gov/data/tools/gibs">NASA GIBS</a>';
+const attribution='ASTER GDEM &copy; NASA/METI | <a href="https://www.earthdata.nasa.gov/data/tools/gibs">NASA GIBS</a>';
 const gibs='https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/';
 const basemaps={
+ satellite:L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{maxNativeZoom:19,maxZoom:19,attribution:'Tiles &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community'}),
  dsm:L.tileLayer(gibs+'ASTER_GDEM_Color_Index/default/GoogleMapsCompatible_Level12/{z}/{y}/{x}.png',{maxNativeZoom:12,maxZoom:19,attribution}),
  relief:L.tileLayer(gibs+'ASTER_GDEM_Color_Shaded_Relief/default/GoogleMapsCompatible_Level12/{z}/{y}/{x}.jpeg',{maxNativeZoom:12,maxZoom:19,attribution}),
- street:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'? <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
+ street:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
 };
-let activeBasemap=basemaps.dsm;
+let activeBasemap=basemaps.satellite;
 activeBasemap.addTo(map);
 Object.values(basemaps).forEach(base=>base.on('tileerror',()=>{
  if(base===activeBasemap) $('basemap-status').textContent='Peta dasar gagal dimuat. Pilih peta lain atau periksa koneksi internet.';
@@ -19,10 +20,15 @@ Object.values(basemaps).forEach(base=>base.on('tileerror',()=>{
 $('basemap').addEventListener('change',()=>{
  map.removeLayer(activeBasemap);activeBasemap=basemaps[$('basemap').value];
  $('basemap-status').textContent='';activeBasemap.addTo(map);
- $('dsm-info').hidden=$('basemap').value==='street';
+ $('dsm-info').hidden=!['dsm','relief'].includes($('basemap').value);
+ $('satellite-info').hidden=$('basemap').value!=='satellite';
  $('dsm-legend').hidden=$('basemap').value!=='dsm';
 });
 L.control.scale({imperial:false}).addTo(map);
+$('detail').addEventListener('click',()=>{
+ $('basemap').value='satellite';$('basemap').dispatchEvent(new Event('change'));
+ map.setView(map.getCenter(),18);
+});
 let payload, layer, controller, sequence=0;
 function option(value, text) { const o=document.createElement('option');o.value=value;o.textContent=text;return o; }
 function villages() {
