@@ -185,3 +185,15 @@ html{scroll-padding-top:240px}
 @media(max-width:1099px){.mission-grid{display:flex;overflow-x:auto;overflow-y:hidden;gap:16px;padding:65px 4px 60px;margin-top:-65px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#d4a017 transparent}.mission-card{flex:0 0 30%;min-width:220px;scroll-snap-align:center}.mission-inner{padding-bottom:130px}.mission-sea-front{clip-path:polygon(0 80%,65% 80%,80% 73%,100% 62%,100% 100%,0 100%)}}
 @media(max-width:639px){.mission-inner{padding-bottom:100px}.mission-intro{margin-bottom:32px}.mission-grid{padding-top:60px;margin-top:-40px;padding-bottom:45px;gap:14px}.mission-card{flex-basis:84%;min-height:350px;min-width:0;transform:translateY(20px);padding:22px 20px 35px}.mission-card:hover,.mission-card:focus-visible{transform:translateY(-24px)}.mission-sea-front{clip-path:polygon(0 85%,65% 85%,100% 80%,100% 100%,0 100%)}.mission-art{height:110px}}
 @media(prefers-reduced-motion:reduce){.mission-card{transition:none;animation:none}}
+
+/* The photo is the foreground; its masked sky exposes the cards underneath. */
+.mission-landscape{background:var(--sc-brand-gradient,linear-gradient(100deg,#68121d,#ad1d30));isolation:isolate}
+.mission-landscape:before{display:none}
+.mission-inner{z-index:1;padding-bottom:240px}
+.mission-intro{margin-bottom:100px}
+.mission-grid{z-index:1}
+.mission-card{transform:translateY(75px);min-height:390px;background:#fffcf7}
+.mission-card:hover,.mission-card:focus-visible{transform:translateY(-55px);z-index:2}
+.mission-sea-front{inset:auto;left:0;bottom:0;width:100%;height:auto;aspect-ratio:1536/1024;z-index:3;clip-path:none;background:url('/images/mission-coast.jpg') center/100% 100% no-repeat;mask:url('/images/mission-coast-mask.svg') center/100% 100% no-repeat;-webkit-mask:url('/images/mission-coast-mask.svg') center/100% 100% no-repeat;pointer-events:none}
+@media(max-width:1099px){.mission-inner{padding-bottom:200px}.mission-sea-front{width:130%;left:-15%;clip-path:none}.mission-card{min-height:380px;transform:translateY(45px)}.mission-intro{margin-bottom:65px}}
+@media(max-width:639px){.mission-inner{padding-bottom:150px}.mission-intro{margin-bottom:35px}.mission-grid{padding-bottom:80px}.mission-sea-front{width:1100px;left:calc(50% - 550px);clip-path:none}.mission-card{transform:translateY(35px);min-height:390px}.mission-card:hover,.mission-card:focus-visible{transform:translateY(-25px)}}
