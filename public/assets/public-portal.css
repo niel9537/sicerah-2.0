@@ -194,7 +194,7 @@ html{scroll-padding-top:240px}
 .mission-grid{z-index:1}
 .mission-card{transform:translateY(75px);min-height:390px;background:#fffcf7}
 .mission-card:hover,.mission-card:focus-visible{transform:translateY(-55px);z-index:2}
-.mission-sea-front{inset:auto;left:0;bottom:0;width:100%;height:auto;aspect-ratio:1536/1024;z-index:3;clip-path:none;background:url('/images/mission-coast.jpg') center/100% 100% no-repeat;mask:url('/images/mission-coast-mask.svg') center/100% 100% no-repeat;-webkit-mask:url('/images/mission-coast-mask.svg') center/100% 100% no-repeat;pointer-events:none}
+.mission-sea-front{inset:auto;left:0;bottom:0;width:100%;height:auto;aspect-ratio:1536/1024;z-index:3;clip-path:none;background:url('/images/mission-coast-transparent.png') center/100% 100% no-repeat;mask:none;-webkit-mask:none;pointer-events:none}
 @media(max-width:1099px){.mission-inner{padding-bottom:200px}.mission-sea-front{width:130%;left:-15%;clip-path:none}.mission-card{min-height:380px;transform:translateY(45px)}.mission-intro{margin-bottom:65px}}
 @media(max-width:639px){.mission-inner{padding-bottom:150px}.mission-intro{margin-bottom:35px}.mission-grid{padding-bottom:80px}.mission-sea-front{width:1100px;left:calc(50% - 550px);clip-path:none}.mission-card{transform:translateY(35px);min-height:390px}.mission-card:hover,.mission-card:focus-visible{transform:translateY(-25px)}}
 
