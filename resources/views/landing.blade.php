@@ -687,14 +687,16 @@
             </div>
         </div>
 
-        {{-- Visi & Misi Pemerintah Kabupaten Nias Barat 2025-2029 --}}
-        <div id="visi-misi" class="mt-6">
+    </section>
+    <section class="mission-section" aria-label="Visi dan misi daerah">
+        {{-- Visi & Misi Pemerintah Kabupaten Nias Barat --}}
+        <div id="visi-misi">
             @php
                 $rpjmd = app(\App\Services\RpjmdContent::class)->get();
                 $hierarchyRows = app(\App\Services\RpjmdHierarchy::class)->present($rpjmd);
             @endphp
             @include('rpjmd._hierarchy', compact('rpjmd', 'hierarchyRows'))
-            <div class="mt-6 pt-5 border-t border-amber-100 text-xs text-slate-500 leading-relaxed">
+            <div class="mission-legal text-xs text-slate-500 leading-relaxed">
                 <p class="font-bold text-[#191716] mb-1">Dasar Hukum</p>
                 <p>Peraturan Daerah Kabupaten Nias Barat Nomor 5 Tahun 2025 tentang Rencana Pembangunan Jangka Menengah Daerah Tahun 2025&ndash;2029, ditetapkan pada 19 Agustus 2025.</p>
                 <a href="https://peraturan.bpk.go.id/Details/340868/perda-kab-nias-barat-no-5-tahun-2025" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 font-bold text-[#AD1D30] hover:underline">Lihat Perda RPJMD 2025&ndash;2029 di JDIH BPK &#8599;</a>

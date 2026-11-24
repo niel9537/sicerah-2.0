@@ -9,7 +9,7 @@
     ];
 @endphp
 <section class="mission-landscape" aria-label="Visi dan lima misi pembangunan">
-    <div class="mission-intro"><p>ARAH PEMBANGUNAN NIAS BARAT</p><h2>{{ $rpjmd['visi'] }}</h2><span>Cerdas, Sejahtera, dan Sehat</span><p class="mission-instruction">Lima misi, satu arah perubahan. Pilih kartu untuk menjelajahi tujuan dan target pembangunan.</p></div>
+    <div class="mission-inner"><div class="mission-intro"><p>ARAH PEMBANGUNAN NIAS BARAT</p><h2>{{ $rpjmd['visi'] }}</h2><span>Cerdas, Sejahtera, dan Sehat</span><p class="mission-instruction">Pilih misi untuk melihat tujuan, sasaran, indikator, dan target pembangunan.</p></div>
     <div class="mission-grid">
     @foreach($rpjmd['pairs'] as $pair)
         <button type="button" class="mission-card mission-card-{{ $loop->index }}" data-mission="{{ $loop->index }}" style="--card-order:{{ $loop->index }}" aria-haspopup="dialog" aria-controls="mission-dialog-{{ $loop->index }}">
@@ -26,7 +26,7 @@
             <p class="mission-source">Sumber: Tabel 3.5 RPJMD Kabupaten Nias Barat. Target mengikuti data indikator yang terhubung.</p></div>
         </dialog>
     @endforeach
-    </div><p class="mission-landscape-note">Bumi Aekhula &middot; Merencanakan masa depan, bersama.</p>
+    </div></div>
 </section>
 @once
 @push('scripts')
