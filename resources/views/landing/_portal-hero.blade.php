@@ -53,6 +53,11 @@ if (empty($slides)) {
                 <div class="portal-service-text"><strong>BPS Kabupaten Nias Barat</strong><span>Integrasi data statistik</span></div>
                 <svg class="portal-service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
             </a>
+            <a class="portal-service-link" href="{{ route('konvergensi.index') }}">
+                <div class="portal-service-logo"><img src="{{ asset('images/logo-bina-bangda.png') }}" alt="Kementerian Dalam Negeri — Ditjen Bina Bangda" width="2038" height="2627" loading="lazy"></div>
+                <div class="portal-service-text"><strong>Aksi Konvergensi Bina Bangda</strong><span>Data stunting Nias Barat</span></div>
+                <svg class="portal-service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
             <a class="portal-service-link" href="https://sipd-ri.kemendagri.go.id/" target="_blank" rel="noopener noreferrer" aria-label="SIPD Republik Indonesia, akses portal resmi Kemendagri, buka tab baru">
                 <div class="portal-service-logo portal-service-logo-sipd"><img src="{{ asset('images/logo-sipd.png') }}" alt="SIPD Republik Indonesia" width="1316" height="506"></div>
                 <div class="portal-service-text"><strong>SIPD Republik Indonesia</strong><span>Akses portal resmi Kemendagri</span></div>
