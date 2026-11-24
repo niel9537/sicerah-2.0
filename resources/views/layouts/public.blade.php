@@ -123,7 +123,7 @@
     </style>
     <link rel="stylesheet" href="{{ asset('assets/sicerah-motion.css') }}?v={{ filemtime(public_path('assets/sicerah-motion.css')) }}">
 </head>
-<body class="{{ request()->routeIs('landing') ? 'portal-home' : '' }} antialiased bg-[#FBF8F4] text-[#121212] pb-20 lg:pb-0 selection:bg-[#D4A017] selection:text-white">
+<body class="antialiased bg-[#FBF8F4] text-[#121212] pb-20 lg:pb-0 selection:bg-[#D4A017] selection:text-white">
     @include('layouts.partials.page-loader')
 
     @include('layouts.partials.public-header')
