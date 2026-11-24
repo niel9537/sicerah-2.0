@@ -17,7 +17,7 @@
         @endforeach
         <section class="rounded-2xl bg-white border border-slate-200 p-6 space-y-4">
             <h2 class="text-xl font-bold">Hubungkan indikator dan target</h2>
-            <p class="text-sm text-slate-600">Pilih indikator yang sudah ada untuk setiap baris Tabel 3.5. Pencocokan otomatis mengutamakan IKD, sumber daerah dan Bank Data. Pilihan manual menggantikan hasil otomatis. Target mengikuti tabel indikator aktif, kemudian sumber RPJMD daerah; jika belum tersedia, target Tabel 3.5 digunakan.</p>
+            <p class="text-sm text-slate-600">Pilih indikator yang sudah ada untuk setiap baris Tabel 3.4. Pencocokan otomatis mengutamakan IKD, sumber daerah dan Bank Data. Pilihan manual menggantikan hasil otomatis. Target resmi mengikuti Bab III Tabel 3.4 PERDA RPJMD 2025–2029. Tautan indikator memakai data yang sudah ada untuk pengisian capaian; target aktif ditampilkan terpisah bila berbeda.</p>
             @foreach($hierarchyRows as $row)
             <div class="border-t border-slate-100 pt-4"><label class="block text-sm font-semibold mb-2" for="link-{{ $row['row'] }}">Misi {{ $row['pair'] + 1 }} · Baris {{ $row['row'] }} — {{ $row['nama'] }}</label>
                 <select id="link-{{ $row['row'] }}" name="links[{{ $row['row'] }}]" class="w-full rounded-xl border-slate-300">

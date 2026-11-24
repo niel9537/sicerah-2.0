@@ -1,5 +1,15 @@
 # Indikator RPJMD
 
+## Penyesuaian PERDA Bab III
+
+Data publik sekarang mengikuti PERDA RPJMD Kabupaten Nias Barat 2025–2029, Bab III, Tabel 3.4 (halaman PDF 386–393 / III-10–III-17). Urutan misi: SDM, ekonomi, infrastruktur, kesehatan, tata kelola. Terdapat 11 sasaran dan 60 indikator; kolom target 2030 tetap disertakan karena tercantum dalam tabel resmi.
+
+Target resmi dari PDF menjadi target utama hierarki. Target indikator aktif ditampilkan terpisah bila berbeda, tanpa mengubah database target atau realisasi. Nama lama disimpan sebagai `aliases` agar pencocokan ke indikator yang sudah ada tetap berjalan. Kunci `row` dan pilihan manual `links` dipertahankan; audit lokal mengonfirmasi 60/60 indikator terhubung. Berkas CMS lama dengan tata kelola sebagai misi pertama dibaca ulang dalam urutan PERDA.
+
+Rincian sasaran/indikator tertutup saat popup dibuka, termasuk ketika popup dibuka kembali. Pengguna membuka sasaran yang diperlukan sebelum melihat tabel target.
+
+Bagian di bawah mencatat implementasi awal; acuan dan prioritas target terbaru mengikuti bagian ini.
+
 ## Visi, misi, dan tujuan publik
 
 Navbar publik **RPJMD** membuka `/rpjmd/visi-misi`. Beranda dan halaman ini memakai komponen hierarki yang sama: satu visi serta lima kartu pasangan misi dan tujuan, berdampingan pada desktop dan bertumpuk pada ponsel.

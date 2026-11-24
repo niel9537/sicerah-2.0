@@ -1,37 +1,47 @@
 [
     {
         "row": 8,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "",
-        "nama": "Harapan Lama Sekolah (HLS) (Tahun)",
+        "nama": "Harapan Lama Sekolah (HLS)",
         "targets": {
-            "2025": "13.08-13.28",
-            "2026": "13.15-13.35",
-            "2027": "13.22-13.43",
-            "2028": "13.29-13.50",
-            "2029": "13.36-13.58",
-            "2030": "13.41-13.65"
-        }
+            "2025": "13,08-13,28",
+            "2026": "13,15-13,35",
+            "2027": "13,22-13,43",
+            "2028": "13,29-13,50",
+            "2029": "13,36-13,58",
+            "2030": "13,41-13,65"
+        },
+        "aliases": [
+            "Harapan Lama Sekolah (HLS) (Tahun)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 9,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "",
-        "nama": "Rata-Rata Lama Sekolah (Tahun)",
+        "nama": "Rata-rata Lama Sekolah (RLS)",
         "targets": {
             "2025": "7,37",
             "2026": "7,72",
             "2027": "8,48",
             "2028": "9,24",
-            "2029": "10",
+            "2029": "10,00",
             "2030": "12"
-        }
+        },
+        "aliases": [
+            "Rata-Rata Lama Sekolah (Tahun)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 10,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Melek Huruf (AMH) Usia Diatas 15 tahun (%)",
+        "nama": "Angka Melek Huruf (AMH) Usia Diatas 15 tahun",
         "targets": {
             "2025": "94,27",
             "2026": "94,37",
@@ -39,41 +49,56 @@
             "2028": "94,57",
             "2029": "94,67",
             "2030": "94,77"
-        }
+        },
+        "aliases": [
+            "Angka Melek Huruf (AMH) Usia Diatas 15 tahun (%)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 11,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Partisipasi Sekolah (APS) 7-12 tahun (%)",
+        "nama": "Angka Partisipasi Sekolah (APS) 7-12 tahun",
         "targets": {
-            "2025": "99,8",
+            "2025": "99,80",
             "2026": "99,85",
             "2027": "99,88",
-            "2028": "99,9",
+            "2028": "99,90",
             "2029": "99,92",
             "2030": "99,94"
-        }
+        },
+        "aliases": [
+            "Angka Partisipasi Sekolah (APS) 7-12 tahun (%)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 12,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Partisipasi Sekolah (APS) 13-15 tahun (%)",
+        "nama": "Angka Partisipasi Sekolah (APS) 13-15 tahun",
         "targets": {
-            "2025": "97,5",
-            "2026": "97,9",
-            "2027": "98,3",
-            "2028": "98,6",
-            "2029": "98,8",
-            "2030": "99"
-        }
+            "2025": "97,50",
+            "2026": "97,90",
+            "2027": "98,30",
+            "2028": "98,60",
+            "2029": "98,80",
+            "2030": "99,00"
+        },
+        "aliases": [
+            "Angka Partisipasi Sekolah (APS) 13-15 tahun (%)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 13,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Literasi SD (Angka)",
+        "nama": "Angka Literasi SD",
         "targets": {
             "2025": "59,23",
             "2026": "61,73",
@@ -81,27 +106,37 @@
             "2028": "66,73",
             "2029": "69,23",
             "2030": "71,73"
-        }
+        },
+        "aliases": [
+            "Angka Literasi SD (Angka)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 14,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Numerasi SD (Angka)",
+        "nama": "Angka Numerasi SD",
         "targets": {
-            "2025": "54,5",
-            "2026": "57,4",
-            "2027": "60,3",
-            "2028": "63,2",
-            "2029": "66,1",
-            "2030": "69"
-        }
+            "2025": "54,50",
+            "2026": "57,40",
+            "2027": "60,30",
+            "2028": "63,20",
+            "2029": "66,10",
+            "2030": "69,00"
+        },
+        "aliases": [
+            "Angka Numerasi SD (Angka)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 15,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Literasi SMP (Angka)",
+        "nama": "Angka Literasi SMP",
         "targets": {
             "2025": "66,44",
             "2026": "67,54",
@@ -109,13 +144,18 @@
             "2028": "69,74",
             "2029": "70,84",
             "2030": "71,94"
-        }
+        },
+        "aliases": [
+            "Angka Literasi SMP (Angka)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 16,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya partisipasi sekolah, mutu pendidikan, dan kompetensi tenaga pendidik",
-        "nama": "Angka Numerasi SMP (Angka)",
+        "nama": "Angka Numerasi SMP",
         "targets": {
             "2025": "63,36",
             "2026": "64,86",
@@ -123,13 +163,18 @@
             "2028": "67,86",
             "2029": "69,36",
             "2030": "70,86"
-        }
+        },
+        "aliases": [
+            "Angka Numerasi SMP (Angka)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 17,
-        "pair": 1,
+        "pair": 0,
         "sasaran": "Meningkatnya mutu proses pembelajaran dan kualitas pendidik untuk mendukung hasil belajar yang optimal",
-        "nama": "Indeks pembangunan literasi masyarakat (Indeks)",
+        "nama": "Indeks pembangunan literasi masyarakat",
         "targets": {
             "2025": "61,88",
             "2026": "61,98",
@@ -137,139 +182,18 @@
             "2028": "62,18",
             "2029": "62,28",
             "2030": "62,38"
-        }
-    },
-    {
-        "row": 22,
-        "pair": 3,
-        "sasaran": "",
-        "nama": "Indeks Infrastruktur (Angka)",
-        "targets": {
-            "2025": "39,88",
-            "2026": "40,71",
-            "2027": "41,54",
-            "2028": "42,37",
-            "2029": "43,2",
-            "2030": "44,03"
-        }
-    },
-    {
-        "row": 23,
-        "pair": 3,
-        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
-        "nama": "Persentase Infrastruktur Jalan Kabupaten status Baik (%)",
-        "targets": {
-            "2025": "15,88",
-            "2026": "19,53",
-            "2027": "23,21",
-            "2028": "27,03",
-            "2029": "31,13",
-            "2030": "34,53"
-        }
-    },
-    {
-        "row": 24,
-        "pair": 3,
-        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
-        "nama": "Rasio konektivitas kabupaten/kota (%)",
-        "targets": {
-            "2025": "63,66",
-            "2026": "66,21",
-            "2027": "68,77",
-            "2028": "71,32",
-            "2029": "73,87",
-            "2030": "76,43"
-        }
-    },
-    {
-        "row": 25,
-        "pair": 3,
-        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
-        "nama": "Persentase rumah tangga yang menempati hunian dengan akses sanitasi aman (%) (%)",
-        "targets": {
-            "2025": "28,5",
-            "2026": "31,83",
-            "2027": "35,15",
-            "2028": "38,48",
-            "2029": "41,81",
-            "2030": "45,13"
-        }
-    },
-    {
-        "row": 26,
-        "pair": 3,
-        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
-        "nama": "Persentase RT yang Memiliki Akses Terhadap Hunian Layak (%)",
-        "targets": {
-            "2025": "71,23",
-            "2026": "72,67",
-            "2027": "74,11",
-            "2028": "75,55",
-            "2029": "76,99",
-            "2030": "78,42"
-        }
-    },
-    {
-        "row": 27,
-        "pair": 3,
-        "sasaran": "Meningkatnya ketahanan daerah terhadap bencana dan perubahan iklim yang melalui penguatan Indeks Risiko Bencana dan Indeks Ketahanan Desa serta cakupan bantuan bagi korban bencana",
-        "nama": "Indeks Risiko Bencana (poin)",
-        "targets": {
-            "2025": "208,06",
-            "2026": "206,72",
-            "2027": "205,39",
-            "2028": "204,05",
-            "2029": "202,72",
-            "2030": "201,38"
-        }
-    },
-    {
-        "row": 28,
-        "pair": 3,
-        "sasaran": "Meningkatnya ketahanan daerah terhadap bencana dan perubahan iklim yang melalui penguatan Indeks Risiko Bencana dan Indeks Ketahanan Desa serta cakupan bantuan bagi korban bencana",
-        "nama": "Indeks Desa (Poin)",
-        "targets": {
-            "2025": "0,5481",
-            "2026": "0,5662",
-            "2027": "0,5849",
-            "2028": "0,6042",
-            "2029": "0,6242",
-            "2030": "0,6449"
-        }
-    },
-    {
-        "row": 29,
-        "pair": 3,
-        "sasaran": "Meningkatnya Pelestarian lingkungan hidup",
-        "nama": "Indeks Kualitas Lingkungan Hidup Daerah (Indeks)",
-        "targets": {
-            "2025": "80,07",
-            "2026": "80,17",
-            "2027": "80,27",
-            "2028": "80,37",
-            "2029": "80,48",
-            "2030": "80,58"
-        }
-    },
-    {
-        "row": 30,
-        "pair": 3,
-        "sasaran": "Meningkatnya Pelestarian lingkungan hidup",
-        "nama": "Persentase timbulan sampah yang terolah di fasilitas pengolahan sampah (%)",
-        "targets": {
-            "2025": "1,56",
-            "2026": "1,57",
-            "2027": "1,57",
-            "2028": "1,58",
-            "2029": "1,59",
-            "2030": "1,6"
-        }
+        },
+        "aliases": [
+            "Indeks pembangunan literasi masyarakat (Indeks)"
+        ],
+        "source_page": 386,
+        "source_table": "3.4"
     },
     {
         "row": 31,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "",
-        "nama": "Laju Pertumbuhan Ekonomi (%)",
+        "nama": "Laju Pertumbuhan Ekonomi",
         "targets": {
             "2025": "3,99",
             "2026": "4,09",
@@ -277,55 +201,56 @@
             "2028": "4,29",
             "2029": "4,39",
             "2030": "4,49"
-        }
+        },
+        "aliases": [
+            "Laju Pertumbuhan Ekonomi (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 32,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Rasio Gini (Indeks)",
+        "nama": "Rasio Gini",
         "targets": {
             "2025": "0,2077",
             "2026": "0,2073",
-            "2027": "0,207",
+            "2027": "0,2070",
             "2028": "0,2066",
             "2029": "0,2063",
             "2030": "0,2059"
-        }
+        },
+        "aliases": [
+            "Rasio Gini (Indeks)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 33,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Tingkat Kemiskinan ((%))",
+        "nama": "Tingkat Kemiskinan",
         "targets": {
             "2025": "22,58",
             "2026": "22,58",
             "2027": "22,41",
             "2028": "22,25",
             "2029": "22,08",
-            "2030": "21,9"
-        }
-    },
-    {
-        "row": 34,
-        "pair": 2,
-        "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Tingkat Partisipasi Angkatan Kerja (%)",
-        "targets": {
-            "2025": "81,34",
-            "2026": "81,51",
-            "2027": "81,67",
-            "2028": "81,84",
-            "2029": "82",
-            "2030": "82,16"
-        }
+            "2030": "21,90"
+        },
+        "aliases": [
+            "Tingkat Kemiskinan ((%))"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 35,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Tingkat Pengangguran Terbuka (%)",
+        "nama": "Tingkat Pengangguran Terbuka",
         "targets": {
             "2025": "0,99",
             "2026": "0,98",
@@ -333,13 +258,37 @@
             "2028": "0,96",
             "2029": "0,95",
             "2030": "0,94"
-        }
+        },
+        "aliases": [
+            "Tingkat Pengangguran Terbuka (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
+    },
+    {
+        "row": 34,
+        "pair": 1,
+        "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
+        "nama": "Tingkat Partisipasi Angkatan Kerja",
+        "targets": {
+            "2025": "81,34",
+            "2026": "81,51",
+            "2027": "81,67",
+            "2028": "81,84",
+            "2029": "82,00",
+            "2030": "82,16"
+        },
+        "aliases": [
+            "Tingkat Partisipasi Angkatan Kerja (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 36,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Rasio Kewirausahaan (%)",
+        "nama": "Rasio Kewirausahaan",
         "targets": {
             "2025": "1,03",
             "2026": "1,23",
@@ -347,13 +296,37 @@
             "2028": "1,63",
             "2029": "1,83",
             "2030": "2,03"
-        }
+        },
+        "aliases": [
+            "Rasio Kewirausahaan (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
+    },
+    {
+        "row": 38,
+        "pair": 1,
+        "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
+        "nama": "Rasio Volume Usaha Koperasi terhadap PDRB",
+        "targets": {
+            "2025": "2",
+            "2026": "2,30",
+            "2027": "2,60",
+            "2028": "2,90",
+            "2029": "3,20",
+            "2030": "3,5"
+        },
+        "aliases": [
+            "Rasio Volume Koperasi terhadap PDRB (%) (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 37,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Rasio PDRB Penyediaan Akomodasi Makan dan Minum (%)",
+        "nama": "Rasio PDRB Penyediaan Akomodasi Makan dan Minum (ADHB)",
         "targets": {
             "2025": "1,76",
             "2026": "1,86",
@@ -361,83 +334,96 @@
             "2028": "2,06",
             "2029": "2,16",
             "2030": "2,26"
-        }
-    },
-    {
-        "row": 38,
-        "pair": 2,
-        "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Rasio Volume Koperasi terhadap PDRB (%) (%)",
-        "targets": {
-            "2025": "2",
-            "2026": "2,3",
-            "2027": "2,6",
-            "2028": "2,9",
-            "2029": "3,2",
-            "2030": "3,5"
-        }
+        },
+        "aliases": [
+            "Rasio PDRB Penyediaan Akomodasi Makan dan Minum (%)"
+        ],
+        "source_page": 387,
+        "source_table": "3.4"
     },
     {
         "row": 39,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Indeks Pembangunan Kebudayaan (Poin)",
+        "nama": "Indeks Pembangunan Kebudayaan",
         "targets": {
-            "2025": "55.44-55.48",
-            "2026": "55.98-56.05",
-            "2027": "56.52-56.59",
-            "2028": "57.06-57.14",
-            "2029": "57.56-57.67",
-            "2030": "58.13-58.20"
-        }
+            "2025": "55,44-55,48",
+            "2026": "55,98-56,05",
+            "2027": "56,52-56,59",
+            "2028": "57,06-57,14",
+            "2029": "57,56-57,67",
+            "2030": "58,13-58,20"
+        },
+        "aliases": [
+            "Indeks Pembangunan Kebudayaan (Poin)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4",
+        "note": "Data hasil evaluasi dari Provinsi"
     },
     {
         "row": 40,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya Kesejahteraan Masyarakat melalui Pemerataan Ekonomi",
-        "nama": "Indeks Pembangunan Pemuda (Nilai)",
+        "nama": "Indeks Pembangunan Pemuda",
         "targets": {
             "2025": "56,56",
             "2026": "56,67",
             "2027": "56,78",
             "2028": "56,89",
-            "2029": "57",
+            "2029": "57,00",
             "2030": "57,11"
-        }
+        },
+        "aliases": [
+            "Indeks Pembangunan Pemuda (Nilai)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4",
+        "note": "Data hasil evaluasi dari Provinsi"
     },
     {
         "row": 45,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya produktifitas petani, peternak, nelayan serta investasi dan perdagangan Kabupaten",
-        "nama": "Indeks Ketahanan Pangan (poin)",
+        "nama": "Indeks Ketahanan Pangan",
         "targets": {
             "2025": "65,48",
             "2026": "65,61",
             "2027": "65,74",
             "2028": "65,87",
-            "2029": "66",
+            "2029": "66,00",
             "2030": "66,13"
-        }
+        },
+        "aliases": [
+            "Indeks Ketahanan Pangan (poin)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
     },
     {
         "row": 46,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya produktifitas petani, peternak, nelayan serta investasi dan perdagangan Kabupaten",
-        "nama": "Rasio PDRB Sektor Pertanian, kehutanan dan Perikanan(%) (%)",
+        "nama": "Rasio PDRB Sektor Pertanian, Kehutanan, dan Perikanan (ADHB)",
         "targets": {
             "2025": "52,12",
-            "2026": "52,7",
+            "2026": "52,70",
             "2027": "53,28",
             "2028": "53,86",
             "2029": "54,44",
             "2030": "55,02"
-        }
+        },
+        "aliases": [
+            "Rasio PDRB Sektor Pertanian, kehutanan dan Perikanan(%) (%)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
     },
     {
         "row": 47,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya produktifitas petani, peternak, nelayan serta investasi dan perdagangan Kabupaten",
-        "nama": "Rasio PDRB Sektor  Perdagangan (ADHB) (%)",
+        "nama": "Rasio PDRB Sektor  Perdagangan (ADHB)",
         "targets": {
             "2025": "13,56",
             "2026": "13,58",
@@ -445,53 +431,244 @@
             "2028": "13,64",
             "2029": "13,67",
             "2030": "13,69"
-        }
+        },
+        "aliases": [
+            "Rasio PDRB Sektor  Perdagangan (ADHB) (%)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
     },
     {
         "row": 48,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya produktifitas petani, peternak, nelayan serta investasi dan perdagangan Kabupaten",
-        "nama": "Rasio PDRB Sektor Industri Pengolahan (ADHB) (%)",
+        "nama": "Rasio PDRB Sektor Industri Pengolahan (ADHB)",
         "targets": {
-            "2025": "0.2-0.21",
-            "2026": "0.272-0.286",
-            "2027": "0.344-0.362",
-            "2028": "0.416-0.438",
-            "2029": "0.488-0.514",
-            "2030": "0.56-0.59"
-        }
+            "2025": "0,20-0,21",
+            "2026": "0,272-0,286",
+            "2027": "0,344-0,362",
+            "2028": "0,416-0,438",
+            "2029": "0,488-0,514",
+            "2030": "0,56-0,59"
+        },
+        "aliases": [
+            "Rasio PDRB Sektor Industri Pengolahan (ADHB) (%)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
     },
     {
         "row": 49,
-        "pair": 2,
+        "pair": 1,
         "sasaran": "Meningkatnya produktifitas petani, peternak, nelayan serta investasi dan perdagangan Kabupaten",
-        "nama": "Persentase peningkatan investasi di kabupaten/kota (%)",
+        "nama": "Persentase peningkatan investasi di kabupaten/kota",
         "targets": {
-            "2025": "9,5",
-            "2026": "9,7",
-            "2027": "9,9",
-            "2028": "9,9",
-            "2029": "10,1",
-            "2030": "10,1"
-        }
+            "2025": "9,50",
+            "2026": "9,70",
+            "2027": "9,90",
+            "2028": "9,90",
+            "2029": "10,10",
+            "2030": "10,10"
+        },
+        "aliases": [
+            "Persentase peningkatan investasi di kabupaten/kota (%)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
+    },
+    {
+        "row": 22,
+        "pair": 2,
+        "sasaran": "",
+        "nama": "Indeks Infrastruktur",
+        "targets": {
+            "2025": "39,88",
+            "2026": "40,71",
+            "2027": "41,54",
+            "2028": "42,37",
+            "2029": "43,20",
+            "2030": "44,03"
+        },
+        "aliases": [
+            "Indeks Infrastruktur (Angka)"
+        ],
+        "source_page": 388,
+        "source_table": "3.4"
+    },
+    {
+        "row": 23,
+        "pair": 2,
+        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
+        "nama": "Persentase Infrastruktur Jalan Kabupaten status Baik",
+        "targets": {
+            "2025": "15,88",
+            "2026": "19,53",
+            "2027": "23,21",
+            "2028": "27,03",
+            "2029": "31,13",
+            "2030": "34,53"
+        },
+        "aliases": [
+            "Persentase Infrastruktur Jalan Kabupaten status Baik (%)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 24,
+        "pair": 2,
+        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
+        "nama": "Rasio konektivitas kabupaten/kota",
+        "targets": {
+            "2025": "63,66",
+            "2026": "66,21",
+            "2027": "68,77",
+            "2028": "71,32",
+            "2029": "73,87",
+            "2030": "76,43"
+        },
+        "aliases": [
+            "Rasio konektivitas kabupaten/kota (%)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 25,
+        "pair": 2,
+        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
+        "nama": "Persentase Rumah Tangga dengan akses sanitasi aman",
+        "targets": {
+            "2025": "28,50",
+            "2026": "31,83",
+            "2027": "35,15",
+            "2028": "38,48",
+            "2029": "41,81",
+            "2030": "45,13"
+        },
+        "aliases": [
+            "Persentase rumah tangga yang menempati hunian dengan akses sanitasi aman (%) (%)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 26,
+        "pair": 2,
+        "sasaran": "Meningkatnya kualitas infrastruktur dasar dan pendukung",
+        "nama": "Persentase RT yang Memiliki Akses Terhadap Hunian Layak",
+        "targets": {
+            "2025": "71,23",
+            "2026": "72,67",
+            "2027": "74,11",
+            "2028": "75,55",
+            "2029": "76,99",
+            "2030": "78,42"
+        },
+        "aliases": [
+            "Persentase RT yang Memiliki Akses Terhadap Hunian Layak (%)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 27,
+        "pair": 2,
+        "sasaran": "Meningkatnya ketahanan daerah terhadap bencana dan perubahan iklim yang melalui penguatan Indeks Risiko Bencana dan Indeks Ketahanan Desa serta cakupan bantuan bagi korban bencana",
+        "nama": "Indeks Risiko Bencana",
+        "targets": {
+            "2025": "208,06",
+            "2026": "206,72",
+            "2027": "205,39",
+            "2028": "204,05",
+            "2029": "202,72",
+            "2030": "201,38"
+        },
+        "aliases": [
+            "Indeks Risiko Bencana (poin)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 28,
+        "pair": 2,
+        "sasaran": "Meningkatnya ketahanan daerah terhadap bencana dan perubahan iklim yang melalui penguatan Indeks Risiko Bencana dan Indeks Ketahanan Desa serta cakupan bantuan bagi korban bencana",
+        "nama": "Indeks Desa",
+        "targets": {
+            "2025": "0,5481",
+            "2026": "0,5662",
+            "2027": "0,5849",
+            "2028": "0,6042",
+            "2029": "0,6242",
+            "2030": "0,6449"
+        },
+        "aliases": [
+            "Indeks Desa (Poin)"
+        ],
+        "source_page": 389,
+        "source_table": "3.4"
+    },
+    {
+        "row": 29,
+        "pair": 2,
+        "sasaran": "Meningkatnya Pelestarian lingkungan hidup",
+        "nama": "Indeks Kualitas Lingkungan Hidup",
+        "targets": {
+            "2025": "80,07",
+            "2026": "80,17",
+            "2027": "80,27",
+            "2028": "80,37",
+            "2029": "80,48",
+            "2030": "80,58"
+        },
+        "aliases": [
+            "Indeks Kualitas Lingkungan Hidup Daerah (Indeks)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
+    },
+    {
+        "row": 30,
+        "pair": 2,
+        "sasaran": "Meningkatnya Pelestarian lingkungan hidup",
+        "nama": "Persentase timbulan sampah yang terolah di fasilitas pengolahan sampah",
+        "targets": {
+            "2025": "1,56",
+            "2026": "1,57",
+            "2027": "1,57",
+            "2028": "1,58",
+            "2029": "1,59",
+            "2030": "1,60"
+        },
+        "aliases": [
+            "Persentase timbulan sampah yang terolah di fasilitas pengolahan sampah (%)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 50,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "",
-        "nama": "Usia Harapan Hidup (tahun) (Tahun)",
+        "nama": "Usia Harapan Hidup",
         "targets": {
-            "2025": "72.49-72.67",
-            "2026": "72.73-72.91",
-            "2027": "72.97-73.15",
-            "2028": "73.21-73.39",
-            "2029": "73.45-73.63",
-            "2030": "73.71-73.87"
-        }
+            "2025": "72,49-72,67",
+            "2026": "72,73-72,91",
+            "2027": "72,97-73,15",
+            "2028": "73,21-73,39",
+            "2029": "73,45-73,63",
+            "2030": "73,71-73,87"
+        },
+        "aliases": [
+            "Usia Harapan Hidup (tahun) (Tahun)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 51,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya derajat kesehatan masyarakat yang inklusif",
         "nama": "Angka Kematian Ibu (per 100.000 KH)",
         "targets": {
@@ -501,55 +678,75 @@
             "2028": "86",
             "2029": "77",
             "2030": "77"
-        }
+        },
+        "aliases": [
+            "Angka Kematian Ibu (per 100.000 KH)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 52,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya derajat kesehatan masyarakat yang inklusif",
-        "nama": "Prevalensi Stunting (%)",
+        "nama": "Prevalensi Stunting",
         "targets": {
-            "2025": "26,4",
+            "2025": "26,40",
             "2026": "25,07",
             "2027": "23,74",
             "2028": "22,41",
             "2029": "21,08",
             "2030": "19,75"
-        }
+        },
+        "aliases": [
+            "Prevalensi Stunting (%)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 53,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya derajat kesehatan masyarakat yang inklusif",
-        "nama": "Cakupan penemuan dan pengobatan kasus Tuberkulosis (treatment coverage) (%) (%)",
+        "nama": "Tuberkulosis (treatment coverage) (%)",
         "targets": {
-            "2025": "91",
+            "2025": "91,00",
             "2026": "91,43",
             "2027": "91,87",
-            "2028": "92,3",
+            "2028": "92,30",
             "2029": "92,74",
             "2030": "93,17"
-        }
+        },
+        "aliases": [
+            "Cakupan penemuan dan pengobatan kasus Tuberkulosis (treatment coverage) (%) (%)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 54,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya derajat kesehatan masyarakat yang inklusif",
-        "nama": "Angka keberhasilan pengobatan Tuberkulosis (treatment success rate) (%) (%)",
+        "nama": "Angka keberhasilan pengobatan Tuberkulosis (treatment success rate)",
         "targets": {
-            "2025": "90",
+            "2025": "90,00",
             "2026": "90,48",
             "2027": "90,96",
             "2028": "91,44",
             "2029": "91,92",
-            "2030": "92,4"
-        }
+            "2030": "92,40"
+        },
+        "aliases": [
+            "Angka keberhasilan pengobatan Tuberkulosis (treatment success rate) (%) (%)"
+        ],
+        "source_page": 390,
+        "source_table": "3.4"
     },
     {
         "row": 55,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Peningkatan cakupan jaminan kesehatan",
-        "nama": "Persentase Cakupan Kepesertaan JKN (UHC) (%)",
+        "nama": "Persentase Cakupan Kepesertaan JKN (UHC)",
         "targets": {
             "2025": "100",
             "2026": "100",
@@ -557,69 +754,95 @@
             "2028": "100",
             "2029": "100",
             "2030": "100"
-        }
+        },
+        "aliases": [
+            "Persentase Cakupan Kepesertaan JKN (UHC) (%)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 56,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya pelayanan kesehatan yang terintegrasi dengan pembangunan keluarga, perlindungan anak, kesetaraan gender, dan kerukunan umat beragama",
-        "nama": "Indeks Pembangunan Kualitas Keluarga (%)",
+        "nama": "Indeks Pembangunan Kualitas Keluarga",
         "targets": {
-            "2025": "47.26-55.72",
-            "2026": "47.50-55.72",
-            "2027": "47.74-55.72",
-            "2028": "47.98-55.72",
-            "2029": "48.22-55.72",
-            "2030": "48.46-55.72"
-        }
+            "2025": "47,26-55,72",
+            "2026": "47,50-55,72",
+            "2027": "47,74-55,72",
+            "2028": "47,98-55,72",
+            "2029": "48,22-55,72",
+            "2030": "48,46-55,72"
+        },
+        "aliases": [
+            "Indeks Pembangunan Kualitas Keluarga (%)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 57,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya pelayanan kesehatan yang terintegrasi dengan pembangunan keluarga, perlindungan anak, kesetaraan gender, dan kerukunan umat beragama",
-        "nama": "Indeks Perlindungan Anak (IPA) (Indeks)",
+        "nama": "Indeks Perlindungan Anak (IPA)",
         "targets": {
             "2025": "49,84",
-            "2026": "50,1",
+            "2026": "50,10",
             "2027": "50,36",
             "2028": "50,62",
             "2029": "50,88",
             "2030": "51,14"
-        }
+        },
+        "aliases": [
+            "Indeks Perlindungan Anak (IPA) (Indeks)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 58,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya pelayanan kesehatan yang terintegrasi dengan pembangunan keluarga, perlindungan anak, kesetaraan gender, dan kerukunan umat beragama",
-        "nama": "Indeks Ketimpangan Gender (IKG) (Poin)",
+        "nama": "Indeks Ketimpangan Gender (IKG)",
         "targets": {
-            "2025": "0.59-0.63",
-            "2026": "0.58-0.618",
-            "2027": "0.57-0.606",
-            "2028": "0.56-0.594",
-            "2029": "0.55-0.582",
-            "2030": "0.54-0.57"
-        }
+            "2025": "0,59-0,63",
+            "2026": "0,58-0,618",
+            "2027": "0,57-0,606",
+            "2028": "0,56-0,594",
+            "2029": "0,55-0,582",
+            "2030": "0,54-0,57"
+        },
+        "aliases": [
+            "Indeks Ketimpangan Gender (IKG) (Poin)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 59,
-        "pair": 4,
+        "pair": 3,
         "sasaran": "Meningkatnya pelayanan kesehatan yang terintegrasi dengan pembangunan keluarga, perlindungan anak, kesetaraan gender, dan kerukunan umat beragama",
-        "nama": "Indeks Kerukunan Umat Beragama (IKUB) (%)",
+        "nama": "Indeks Kerukunan Umat Beragama (IKUB)",
         "targets": {
-            "2025": "81.17-81.20",
-            "2026": "81.53-81.60",
-            "2027": "81.90-82.00",
-            "2028": "82.26-82.39",
-            "2029": "82.62-82.79",
-            "2030": "82.98-83.19"
-        }
+            "2025": "81,17-81,2",
+            "2026": "81,53-81,60",
+            "2027": "81,90-82,00",
+            "2028": "82,26-82,39",
+            "2029": "82,62-82,79",
+            "2030": "82,98-83,19"
+        },
+        "aliases": [
+            "Indeks Kerukunan Umat Beragama (IKUB) (%)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4",
+        "note": "Data hasil evaluasi dari Provinsi"
     },
     {
         "row": 60,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "",
-        "nama": "Indeks Reformasi Birokrasi (Indeks)",
+        "nama": "Indeks Reformasi Birokrasi",
         "targets": {
             "2025": "38,56",
             "2026": "38,56",
@@ -627,41 +850,56 @@
             "2028": "45,43",
             "2029": "47,72",
             "2030": "50"
-        }
+        },
+        "aliases": [
+            "Indeks Reformasi Birokrasi (Indeks)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 61,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Pelayanan Publik. (Indeks)",
+        "nama": "Indeks Pelayanan Publik",
         "targets": {
-            "2025": "3,2",
-            "2026": "3,5",
-            "2027": "3,8",
-            "2028": "4",
-            "2029": "4,1",
+            "2025": "3,20",
+            "2026": "3,50",
+            "2027": "3,80",
+            "2028": "4,00",
+            "2029": "4,10",
             "2030": "4,51"
-        }
+        },
+        "aliases": [
+            "Indeks Pelayanan Publik. (Indeks)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 62,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Reformasi Hukum (Indeks)",
+        "nama": "Indeks Reformasi Hukum",
         "targets": {
-            "2025": "90",
+            "2025": "90,00",
             "2026": "90,25",
-            "2027": "90,5",
+            "2027": "90,50",
             "2028": "90,75",
-            "2029": "91",
+            "2029": "91,00",
             "2030": "91,25"
-        }
+        },
+        "aliases": [
+            "Indeks Reformasi Hukum (Indeks)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 63,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Kepuasan Masyarakat terhadap Layanan Administrasi Kependudukan (Indeks)",
+        "nama": "Indeks Kepuasan Masyarakat terhadap Layanan Administrasi Kependudukan",
         "targets": {
             "2025": "80",
             "2026": "84",
@@ -669,13 +907,18 @@
             "2028": "92",
             "2029": "96",
             "2030": "100"
-        }
+        },
+        "aliases": [
+            "Indeks Kepuasan Masyarakat terhadap Layanan Administrasi Kependudukan (Indeks)"
+        ],
+        "source_page": 391,
+        "source_table": "3.4"
     },
     {
         "row": 64,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Satu Data Indonesia (Angka)",
+        "nama": "Indeks Satu Data Indonesia",
         "targets": {
             "2025": "20-30",
             "2026": "30-40",
@@ -683,41 +926,56 @@
             "2028": "40-50",
             "2029": "40-50",
             "2030": "40-50"
-        }
+        },
+        "aliases": [
+            "Indeks Satu Data Indonesia (Angka)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 65,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Inovasi Daerah (%)",
+        "nama": "Indeks Inovasi Daerah",
         "targets": {
-            "2025": "30",
+            "2025": "30,00",
             "2026": "33,75",
             "2027": "40,01",
             "2028": "41,25",
-            "2029": "42,5",
+            "2029": "42,50",
             "2030": "45"
-        }
+        },
+        "aliases": [
+            "Indeks Inovasi Daerah (%)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 70,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Rasio Kapasitas Fiskal Daerah (Angka)",
+        "nama": "Rasio Kapasitas Fiskal Daerah",
         "targets": {
-            "2025": "1,18",
-            "2026": "1,18",
-            "2027": "1,19",
+            "2025": "1,180",
+            "2026": "1,180",
+            "2027": "1,190",
             "2028": "1,2",
-            "2029": "1,21",
-            "2030": "1,22"
-        }
+            "2029": "1,210",
+            "2030": "1,220"
+        },
+        "aliases": [
+            "Rasio Kapasitas Fiskal Daerah (Angka)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 71,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Pengelolaan Keuangan Daerah (Indeks)",
+        "nama": "Indeks Pengelolaan Keuangan Daerah",
         "targets": {
             "2025": "77,35",
             "2026": "77,84",
@@ -725,27 +983,37 @@
             "2028": "78,83",
             "2029": "79,33",
             "2030": "79,81"
-        }
+        },
+        "aliases": [
+            "Indeks Pengelolaan Keuangan Daerah (Indeks)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 72,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Akses Keuangan Daerah (Indeks)",
+        "nama": "Indeks Akses Keuangan Daerah",
         "targets": {
             "2025": "2,44",
-            "2026": "2,5",
+            "2026": "2,50",
             "2027": "2,56",
             "2028": "2,62",
             "2029": "2,69",
             "2030": "2,72"
-        }
+        },
+        "aliases": [
+            "Indeks Akses Keuangan Daerah (Indeks)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 73,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Nilai SAKIP (Level)",
+        "nama": "Nilai SAKIP",
         "targets": {
             "2025": "47,13",
             "2026": "60",
@@ -753,13 +1021,18 @@
             "2028": "64",
             "2029": "66",
             "2030": "68"
-        }
+        },
+        "aliases": [
+            "Nilai SAKIP (Level)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 74,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Nilai LPPD (Poin)",
+        "nama": "Nilai LPPD",
         "targets": {
             "2025": "3,4",
             "2026": "3,5",
@@ -767,13 +1040,18 @@
             "2028": "3,7",
             "2029": "3,8",
             "2030": "3,9"
-        }
+        },
+        "aliases": [
+            "Nilai LPPD (Poin)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 75,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Tingkat Kepuasan Anggota DPRD terhadap Pelayanan Sekretariat DPRD (Indeks)",
+        "nama": "Tingkat Kepuasan Anggota DPRD terhadap Pelayanan Sekretariat DPRD",
         "targets": {
             "2025": "65",
             "2026": "67",
@@ -781,27 +1059,37 @@
             "2028": "70",
             "2029": "72",
             "2030": "75"
-        }
+        },
+        "aliases": [
+            "Tingkat Kepuasan Anggota DPRD terhadap Pelayanan Sekretariat DPRD (Indeks)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 76,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Perencanaan Pembangunan Daerah (Indeks)",
+        "nama": "Indeks Perencanaan Pembangunan Daerah",
         "targets": {
-            "2025": "90,5",
-            "2026": "92,55",
-            "2027": "93,1",
-            "2028": "93,3",
-            "2029": "93,5",
-            "2030": "94"
-        }
+            "2025": "90.50",
+            "2026": "92.55",
+            "2027": "93.10",
+            "2028": "93.30",
+            "2029": "93.50",
+            "2030": "94.00"
+        },
+        "aliases": [
+            "Indeks Perencanaan Pembangunan Daerah (Indeks)"
+        ],
+        "source_page": 392,
+        "source_table": "3.4"
     },
     {
         "row": 77,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Opini BPK terhadap LKPD (Opini)",
+        "nama": "Opini BPK terhadap LKPD",
         "targets": {
             "2025": "WTP",
             "2026": "WTP",
@@ -809,13 +1097,18 @@
             "2028": "WTP",
             "2029": "WTP",
             "2030": "WTP"
-        }
+        },
+        "aliases": [
+            "Opini BPK terhadap LKPD (Opini)"
+        ],
+        "source_page": 393,
+        "source_table": "3.4"
     },
     {
         "row": 78,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Monitoring Center for Prevention (MCP) (Poin)",
+        "nama": "MCP",
         "targets": {
             "2025": "75",
             "2026": "80",
@@ -823,13 +1116,18 @@
             "2028": "86",
             "2029": "89",
             "2030": "92"
-        }
+        },
+        "aliases": [
+            "Monitoring Center for Prevention (MCP) (Poin)"
+        ],
+        "source_page": 393,
+        "source_table": "3.4"
     },
     {
         "row": 79,
-        "pair": 0,
+        "pair": 4,
         "sasaran": "Terwujudnya tata kelola pemerintahan yang akuntabel, berintegritas, dan inovatif",
-        "nama": "Indeks Profesionalitas ASN (Indeks)",
+        "nama": "Indeks Profesionalitas ASN",
         "targets": {
             "2025": "75,15",
             "2026": "75,25",
@@ -837,6 +1135,11 @@
             "2028": "75,45",
             "2029": "75,55",
             "2030": "75,65"
-        }
+        },
+        "aliases": [
+            "Indeks Profesionalitas ASN (Indeks)"
+        ],
+        "source_page": 393,
+        "source_table": "3.4"
     }
 ]

@@ -28,9 +28,11 @@ class RpjmdHierarchy
         foreach ($this->rows() as $row) {
             $key = (string) $row['row'];
             $manualId = $content['links'][$key] ?? null;
-            $matches = $byName->get($this->normalize($row['nama']), collect());
+            $matches = collect([$row['nama'], ...($row['aliases'] ?? [])])
+                ->flatMap(fn ($name) => $byName->get($this->normalize($name), collect()))
+                ->unique('id');
             // Follow the existing importer's canonical choice: regional sources,
-            // then Bank Data, then the oldest ID. IKD is the Tabel 3.5 scope.
+            // then Bank Data, then the oldest ID. Keep existing achievement IDs.
             $ranked = $matches->sortBy(fn ($item) => [
                 $item->jenis === 'IKD' ? 0 : ($item->jenis === 'IKU' ? 1 : 2),
                 $sources->has($item->id) ? 0 : 1,
@@ -41,20 +43,15 @@ class RpjmdHierarchy
             $row['indikator'] = $indicator;
             $row['ambiguous'] = false;
             $row['source_targets'] = $row['targets'];
+            $row['active_targets'] = [];
             $row['target_origins'] = [];
             foreach (range(2025, 2030) as $year) {
                 $master = $indicator?->targets->firstWhere('tahun', $year)?->target;
                 $regional = $indicator ? $sources->get($indicator->id, collect())->map(fn ($source) => $source->targets[$year] ?? null)
                     ->filter(fn ($value) => $value !== null && $value !== '')->unique()->values() : collect();
-                if ($master !== null && $master !== '') {
-                    $row['targets'][$year] = $master;
-                    $row['target_origins'][$year] = 'Tabel indikator';
-                } elseif ($regional->count() === 1) {
-                    $row['targets'][$year] = $regional->first();
-                    $row['target_origins'][$year] = 'Sumber indikator RPJMD';
-                } else {
-                    $row['target_origins'][$year] = 'Tabel 3.5';
-                }
+                $row['active_targets'][$year] = $master !== null && $master !== ''
+                    ? $master : ($regional->count() === 1 ? $regional->first() : null);
+                $row['target_origins'][$year] = 'RPJMD · Tabel 3.4';
             }
             $rows[] = $row;
         }

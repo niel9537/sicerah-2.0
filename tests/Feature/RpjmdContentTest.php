@@ -32,7 +32,8 @@ class RpjmdContentTest extends TestCase
     {
         $data = $this->defaults();
         $this->mock(RpjmdContent::class, fn ($mock) => $mock->shouldReceive('get')->andReturn($data));
-        $response = $this->get(route('publik.rpjmd'))->assertOk()->assertSee('Misi 5')->assertSee('Tujuan 5');
+        $response = $this->get(route('publik.rpjmd'))->assertOk()->assertSee('MISI 05')->assertSee('Tabel 3.4');
+        $this->assertDoesNotMatchRegularExpression('/<details[^>]*\sopen(?:\s|>)/', $response->getContent());
         foreach ($data['pairs'] as $pair) {
             $response->assertSee($pair['misi'])->assertSee($pair['tujuan']);
         }
@@ -65,7 +66,7 @@ class RpjmdContentTest extends TestCase
             ->put(route('cms.rpjmd.update'), $data)->assertSessionHasErrors('pairs');
     }
 
-    public function test_linked_targets_are_live_and_source_values_are_preserved(): void
+    public function test_official_targets_are_preserved_and_linked_targets_are_live(): void
     {
         $indicator = \App\Models\Indikator::create(['nama' => 'Harapan Lama Sekolah (HLS)', 'jenis' => 'IKU']);
         $indicator->targets()->create(['tahun' => 2025, 'target' => '0']);
@@ -73,10 +74,11 @@ class RpjmdContentTest extends TestCase
         $rows = $service->present($this->defaults());
         $row = collect($rows)->firstWhere('row', 8);
         $this->assertSame($indicator->id, $row['indikator']->id);
-        $this->assertSame('0', $row['targets'][2025]);
-        $this->assertSame('13.08-13.28', $row['source_targets'][2025]);
+        $this->assertSame('0', $row['active_targets'][2025]);
+        $this->assertSame('13,08-13,28', $row['targets'][2025]);
+        $this->assertSame('13,08-13,28', $row['source_targets'][2025]);
         $indicator->targets()->where('tahun', 2025)->update(['target' => '14.5']);
-        $this->assertSame('14.5', collect($service->present($this->defaults()))->firstWhere('row', 8)['targets'][2025]);
+        $this->assertSame('14.5', collect($service->present($this->defaults()))->firstWhere('row', 8)['active_targets'][2025]);
         $this->get(route('publik.rpjmd.indikator', $indicator))->assertOk()->assertSee('14.5');
     }
 
@@ -91,7 +93,8 @@ class RpjmdContentTest extends TestCase
         $data = $this->defaults(); $data['links'] = [8 => $two->id];
         $row = collect($service->present($data))->firstWhere('row', 8);
         $this->assertSame($two->id, $row['indikator']->id);
-        $this->assertSame('14-15', $row['targets'][2025]);
+        $this->assertSame('14-15', $row['active_targets'][2025]);
+        $this->assertSame('13,08-13,28', $row['targets'][2025]);
         $this->mock(RpjmdContent::class, fn ($mock) => $mock->shouldReceive('save')->once()->with($data));
         $this->actingAs(new User(['role' => 'super_admin']))->put(route('cms.rpjmd.update'), $data)->assertSessionHasNoErrors();
     }

@@ -1,10 +1,6 @@
 {
-    "visi": "MEWUJUDKAN NIAS BARAT CERAH",
+    "visi": "MEWUJUDKAN NIAS BARAT CERAH (CERDAS, SEJAHTERA, SEHAT)",
     "pairs": [
-        {
-            "misi": "Menyelenggarakan Tata Kelola Pemerintahan Yang Akuntabel Untuk Mewujudkan Organisasi Yang Sehat Dalam Pemerintahan",
-            "tujuan": "Mewujudkan Reformasi Birokrasi Pemerintahan"
-        },
         {
             "misi": "Meningkatkan Kualitas Sumber Daya Manusia Untuk Menghasilkan Insan Cerdas Yang Profesional, Inovatif, Berintegritas, dan Bermoral Tinggi",
             "tujuan": "Meningkatkan akses dan mutu layanan pendidikan yang merata dan inklusif"
@@ -15,11 +11,15 @@
         },
         {
             "misi": "Meningkatkan Pembangunan dan Pengembangan Infrastruktur Dasar dan Strategis Sebagai Fasilitas Pendukung Kesejahteraan Masyarakat",
-            "tujuan": "Peningkatan kualitas  dan aksesibilitas  Infrastruktur dan kapasitas ketahanan terhadap bencana daerah serta perubahan iklim yang mendukung kualitas lingkungan hidup"
+            "tujuan": "Peningkatan kualitas dan aksesibilitas Infrastruktur dan kapasitas ketahanan terhadap bencana daerah serta perubahan iklim yang mendukung kualitas lingkungan hidup"
         },
         {
-            "misi": "Meningkatkan Kualitas Pelayanan Kesehatan Dalang Rangka Mewujudkan Masyarakat Yang Sehat Jasmani dan Rohani",
+            "misi": "Meningkatkan Kualitas Pelayanan Kesehatan Dalam Rangka Mewujudkan Masyarakat Yang Sehat Jasmani dan Rohani",
             "tujuan": "Peningkatan kualitas Kesehatan Jasmani dan Rohani"
+        },
+        {
+            "misi": "Menyelenggarakan tata kelola pemerintah yang akuntabel untuk mewujudkan organisasi yang sehat dalam pemerintahan",
+            "tujuan": "Mewujudkan Reformasi Birokrasi Pemerintahan"
         }
     ]
 }

@@ -1,5 +1,5 @@
 @php
-    $themes = ['Tata kelola', 'Sumber daya manusia', 'Ekonomi kerakyatan', 'Infrastruktur', 'Kesehatan'];
+    $themes = ['Sumber daya manusia', 'Ekonomi kerakyatan', 'Infrastruktur', 'Kesehatan', 'Tata kelola'];
     $art = [
         '<path d="M20 74h100M30 70V40h80v30M22 40l48-24 48 24M44 48v22m26-22v22m26-22v22"/><circle cx="70" cy="29" r="3"/>',
         '<path d="m12 39 58-23 58 23-58 23zM35 49v27q35 23 70 0V49M125 41v39"/><path d="M21 101q49-25 98 0M42 91v-8m56 8v-8"/>',
@@ -7,6 +7,7 @@
         '<path d="M10 94h120M19 87V45h24v42m51 0V45h24v42M43 61h51M43 76h51M22 45l9-20 9 20m57 0 9-20 9 20M60 108l5-26m15 26-5-26"/>',
         '<path d="M70 104S15 74 15 43c0-27 37-33 55-9 18-24 55-18 55 9 0 31-55 61-55 61Z"/><path d="M43 60h17V43h20v17h17v20H80v17H60V80H43z"/>'
     ];
+    $art = [$art[1], $art[2], $art[3], $art[4], $art[0]];
 @endphp
 <section class="mission-landscape" aria-label="Visi dan lima misi pembangunan">
     <div class="mission-inner"><div class="mission-intro"><p>ARAH PEMBANGUNAN NIAS BARAT</p><h2>{{ $rpjmd['visi'] }}</h2><span>Cerdas, Sejahtera, dan Sehat</span><p class="mission-instruction">Pilih misi untuk melihat tujuan, sasaran, indikator, dan target pembangunan.</p></div>
@@ -23,7 +24,7 @@
             <div class="mission-dialog-content"><h2 id="mission-title-{{ $loop->index }}">{{ $themes[$loop->index] }}</h2><div class="mission-detail-grid"><section><h3>Misi</h3><p>{{ $pair['misi'] }}</p></section><section><h3>Tujuan</h3><p>{{ $pair['tujuan'] }}</p></section></div>
             <h3 class="mission-target-title">Sasaran, indikator & target tahunan</h3>
             @include('rpjmd._indicators', ['rows' => collect($hierarchyRows ?? [])->where('pair', $loop->index)])
-            <p class="mission-source">Sumber: Tabel 3.5 RPJMD Kabupaten Nias Barat. Target mengikuti data indikator yang terhubung.</p></div>
+            <p class="mission-source">Sumber: Bab III, Tabel 3.4 RPJMD Kabupaten Nias Barat 2025–2029. Kolom 2030 mengikuti dokumen. Buka sasaran untuk melihat indikator dan targetnya.</p></div>
         </dialog>
     @endforeach
     </div></div>
@@ -38,6 +39,9 @@
     document.querySelectorAll('[data-mission]').forEach(button => button.addEventListener('click', () => {
         const dialog = document.getElementById(button.getAttribute('aria-controls'));
         trigger = button; previousOverflow = document.body.style.overflow;
+        dialog.querySelectorAll('details').forEach(detail => { detail.open = false; });
+        dialog.querySelector('.mission-dialog-content').scrollTop = 0;
+        dialog.scrollTop = 0;
         document.body.style.overflow = 'hidden'; dialog.showModal();
     }));
     document.querySelectorAll('.mission-dialog').forEach(dialog => {
