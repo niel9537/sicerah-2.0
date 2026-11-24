@@ -29,7 +29,8 @@ class WebgisIntegrationTest extends TestCase {
             ->assertSee('id="wg-detail"', false)
             ->assertSee('Peta Jalan (OpenStreetMap)')
             ->assertSee('id="wg-facilities"', false)
-            ->assertSee(route('webgis.facilities'));
+            ->assertSee('data/gis/nias-barat-buildings-map.geojson')
+            ->assertSee('value="unclassified"', false);
     }
     private function user(string $role): User { return User::create(['nama'=>'Test','email'=>$role.'@example.test','password'=>'test-only-password','role'=>$role]); }
     public function test_seed_and_rerun_preserve_values(): void {

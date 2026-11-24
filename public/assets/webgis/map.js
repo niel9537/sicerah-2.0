@@ -3,7 +3,7 @@
 const $ = id => document.getElementById('wg-' + id);
 if (!$('map')) return;
 if (!window.L) { $('status').textContent = 'Leaflet gagal dimuat. Periksa koneksi ke unpkg.com lalu muat ulang halaman.'; return; }
-const map = L.map($('map')).setView([1.0,97.45],10);
+const map = L.map($('map'),{preferCanvas:true}).setView([1.0,97.45],10);
 const attribution='ASTER GDEM &copy; NASA/METI | <a href="https://www.earthdata.nasa.gov/data/tools/gibs">NASA GIBS</a>';
 const gibs='https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/';
 const basemaps={
@@ -86,8 +86,8 @@ $('thematic').addEventListener('change',()=>{if(layer) layer.setStyle({fillOpaci
 $('theme').addEventListener('change',()=>{ $('kec').value='';$('desa').value='';load(true); });
 $('year').addEventListener('change',()=>load());$('kec').addEventListener('change',()=>{$('desa').value='';villages();render();});$('desa').addEventListener('change',render);$('retry').addEventListener('click',()=>load(true));load(true);
 
-const facilityColors={government:'#7c3aed',school:'#2563eb',health:'#dc2626'};
-const facilityLabels={government:'Pemerintah',school:'Sekolah',health:'Kesehatan'};
+const facilityColors={government:'#7c3aed',school:'#2563eb',health:'#dc2626',unclassified:'#64748b'};
+const facilityLabels={government:'Pemerintah',school:'Sekolah',health:'Kesehatan',unclassified:'Bangunan - fungsi belum diketahui'};
 let facilityData,facilityLayer,facilityBusy=false;
 function renderFacilities(){
  if(!facilityData)return;
@@ -98,17 +98,20 @@ function renderFacilities(){
   style:f=>({color:facilityColors[f.properties.category],weight:2,fillOpacity:.35}),
   pointToLayer:(f,latlng)=>L.circleMarker(latlng,{pane:'facilities',radius:7,color:'#fff',weight:2,fillColor:facilityColors[f.properties.category],fillOpacity:1}),
   onEachFeature:(f,l)=>{
-   const p=f.properties,box=document.createElement('div'),title=document.createElement('strong');title.textContent=p.name;box.append(title);
-   [facilityLabels[p.category],p.geometry_label].forEach(text=>{const line=document.createElement('div');line.textContent=text;box.append(line);});
-   const link=document.createElement('a');link.href=p.osm_url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Lihat sumber OpenStreetMap';box.append(link);l.bindPopup(box);
-   const tooltip=document.createElement('span');tooltip.textContent=p.name;l.bindTooltip(tooltip);
+   const p=f.properties;
+   l.bindPopup(()=>{
+    const box=document.createElement('div'),title=document.createElement('strong');title.textContent=p.name;box.append(title);
+    [facilityLabels[p.category],p.geometry_label].forEach(text=>{const line=document.createElement('div');line.textContent=text;box.append(line);});
+    const link=document.createElement('a');link.href='https://docs.overturemaps.org/attribution/';link.target='_blank';link.rel='noopener noreferrer';link.textContent='Sumber Overture Maps';box.append(link);return box;
+   });
+   if(p.category!=='unclassified')l.bindTooltip(()=>{const text=document.createElement('span');text.textContent=p.name;return text;});
   }
  }).addTo(map);
  $('facility-list').replaceChildren();
- facilityLayer.eachLayer(l=>{const button=document.createElement('button');button.type='button';button.textContent=facilityLabels[l.feature.properties.category]+' - '+l.feature.properties.name;button.style.borderLeftColor=facilityColors[l.feature.properties.category];button.addEventListener('click',()=>{const bounds=l.getBounds?.();if(bounds)map.fitBounds(bounds,{maxZoom:18,padding:[30,30]});else map.setView(l.getLatLng(),18);l.openPopup();});$('facility-list').append(button);});
+ facilityLayer.eachLayer(l=>{if(l.feature.properties.category==='unclassified')return;const button=document.createElement('button');button.type='button';button.textContent=facilityLabels[l.feature.properties.category]+' - '+l.feature.properties.name;button.style.borderLeftColor=facilityColors[l.feature.properties.category];button.addEventListener('click',()=>{const bounds=l.getBounds?.();if(bounds)map.fitBounds(bounds,{maxZoom:18,padding:[30,30]});else map.setView(l.getLatLng(),18);l.openPopup();});$('facility-list').append(button);});
  Object.keys(facilityColors).forEach(c=>$('count-'+c).textContent=facilityData.features.filter(f=>f.properties.category===c).length);
  $('facility-fit').disabled=!features.length;
- $('facility-status').textContent=features.length?`${features.length} fasilitas ditampilkan. Diperbarui: ${facilityData.updated_at}.`:'Belum ada fasilitas pada kategori yang dipilih atau data sumber belum tersedia.';
+ $('facility-status').textContent=features.length?`${features.length} objek bangunan dan fasilitas ditampilkan. Diperbarui: ${facilityData.updated_at}.`:'Belum ada fasilitas pada kategori yang dipilih atau data sumber belum tersedia.';
 }
 async function loadFacilities(){
  if(facilityBusy)return;facilityBusy=true;$('facility-retry').hidden=true;$('facility-status').textContent='Memuat fasilitas publik...';

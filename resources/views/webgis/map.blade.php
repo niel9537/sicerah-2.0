@@ -97,18 +97,21 @@
             <a href="https://www.earthdata.nasa.gov/data/catalog/lpcloud-astgtm-003" target="_blank" rel="noopener noreferrer">Sumber: NASA / METI ASTER GDEM</a>
         </div>
         <p id="wg-basemap-status" class="wg-basemap-status" role="status" aria-live="polite"></p>
-        <section class="wg-facilities" aria-labelledby="wg-facilities-title" data-url="{{ route('webgis.facilities') }}" id="wg-facilities">
+        <section class="wg-facilities" aria-labelledby="wg-facilities-title" data-url="{{ asset('data/gis/nias-barat-buildings-map.geojson') }}?v=20261124" id="wg-facilities">
             <strong id="wg-facilities-title">Bangunan dan Fasilitas Publik</strong>
             <div class="wg-facility-filters">
                 <label><input type="checkbox" value="government" checked> <span class="wg-chip" style="background:#7c3aed"></span>Pemerintah <span id="wg-count-government">0</span></label>
                 <label><input type="checkbox" value="school" checked> <span class="wg-chip" style="background:#2563eb"></span>Sekolah <span id="wg-count-school">0</span></label>
                 <label><input type="checkbox" value="health" checked> <span class="wg-chip" style="background:#dc2626"></span>Kesehatan <span id="wg-count-health">0</span></label>
+                <label><input type="checkbox" value="unclassified" checked> <span class="wg-chip" style="background:#64748b"></span>Bangunan <span id="wg-count-unclassified">0</span></label>
                 <button type="button" id="wg-facility-fit" class="wg-button" disabled>Lihat Semua Fasilitas</button>
                 <button type="button" id="wg-facility-retry" class="wg-button" hidden>Coba Lagi</button>
             </div>
             <p id="wg-facility-status" role="status" aria-live="polite">Memuat fasilitas publik...</p>
             <p>Warna membedakan fungsi fasilitas. Poligon menunjukkan tapak bangunan atau area fasilitas sesuai data sumber; titik menunjukkan lokasi tanpa tapak terpetakan. Cakupan seluruh Kabupaten Nias Barat; terpisah dari filter wilayah dan tahun indikator. Data sumber belum tentu lengkap.</p>
-            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Sumber: OpenStreetMap contributors (ODbL)</a>
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Peta dasar: OpenStreetMap contributors (ODbL)</a>
+            <a href="https://docs.overturemaps.org/attribution/" target="_blank" rel="noopener noreferrer">Data bangunan dan fasilitas: Overture Maps / sumber data</a>
+            <p>Abu-abu: tapak bangunan yang belum diketahui fungsinya. Daftar di bawah berisi fasilitas yang kategorinya telah tercatat pada sumber.</p>
             <div id="wg-facility-list" class="wg-facility-list" aria-label="Daftar fasilitas publik"></div>
         </section>
         {{-- Filter Bar --}}
@@ -164,5 +167,5 @@
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="{{ asset('assets/webgis/map.js') . '?v=facilities-3' }}"></script>
+<script src="{{ asset('assets/webgis/map.js') . '?v=local-buildings-4' }}"></script>
 @endsection
