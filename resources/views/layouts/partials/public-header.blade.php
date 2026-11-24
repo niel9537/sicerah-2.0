@@ -30,9 +30,17 @@
                 </div>
             </div>
             @endforeach
-            <a class="portal-nav-item {{ request()->routeIs('publik.rpjmd') ? 'is-active' : '' }}" href="{{ route('publik.rpjmd') }}" @if(request()->routeIs('publik.rpjmd')) aria-current="page" @endif>@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>RPJMD</span></a>
-            <a class="portal-nav-item {{ request()->routeIs('publik.publikasi*') ? 'is-active' : '' }}" href="{{ route('publik.publikasi') }}">@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>Publikasi</span></a>
-            <a class="portal-nav-item {{ request()->routeIs('bps.*') ? 'is-active' : '' }}" href="{{ route('bps.index') }}">@include('layouts.partials.public-icon', ['icon' => 'chart'])<span>Data BPS</span></a>
+            <div class="portal-nav-group" x-data="{ open: false, dataOpen: false }" @click.outside="open = false; dataOpen = false" @keydown.escape.window="open = false; dataOpen = false">
+                <button type="button" class="portal-nav-item {{ request()->routeIs('publik.publikasi*', 'bps.*', 'publik.rpjmd') ? 'is-active' : '' }}" @click="open = !open; if (!open) dataOpen = false" :aria-expanded="open" aria-controls="portal-publications-menu">@include('layouts.partials.public-icon', ['icon' => 'publication'])<span>Publikasi</span></button>
+                <div id="portal-publications-menu" class="portal-dropdown" x-show="open" x-cloak x-transition>
+                    <a href="{{ route('publik.publikasi') }}" @if(request()->routeIs('publik.publikasi*')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>Publikasi &amp; Berita</a>
+                    <button type="button" class="portal-dropdown-toggle" @click="dataOpen = !dataOpen" :aria-expanded="dataOpen" aria-controls="portal-publications-data"><span class="portal-menu-dot" aria-hidden="true"></span>Data <span class="portal-chevron" :class="{ 'rotated': dataOpen }" aria-hidden="true">&#8964;</span></button>
+                    <div id="portal-publications-data" class="portal-nested-links" x-show="dataOpen" x-cloak x-transition>
+                        <a href="{{ route('bps.index') }}" @if(request()->routeIs('bps.*')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>Data BPS</a>
+                        <a href="{{ route('publik.rpjmd') }}" @if(request()->routeIs('publik.rpjmd')) aria-current="page" @endif><span class="portal-menu-dot" aria-hidden="true"></span>RPJMD</a>
+                    </div>
+                </div>
+            </div>
             <a class="portal-nav-item portal-mobile-account" href="{{ auth()->check() ? route('dashboard') : route('login') }}">{{ auth()->check() ? 'Dashboard' : 'Masuk' }}</a>
             @include('layouts.partials.weather')
         </div>

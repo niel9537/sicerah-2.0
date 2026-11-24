@@ -222,3 +222,5 @@ html{scroll-padding-top:240px}
 
 /* Keep the existing crop and shift the photo another 20% of the section upward. */
 .mission-landscape:before{inset:-45% 0 20%;background-position:center top;background-size:cover}
+
+.portal-dropdown-toggle{display:flex;align-items:center;gap:13px;width:100%;padding:13px 15px;border:0;border-radius:8px;background:transparent;color:#29221e;font:inherit;font-size:14px;font-weight:650;text-align:left;cursor:pointer}.portal-dropdown-toggle:hover,.portal-dropdown-toggle:focus-visible{background:#fff4e8;color:#9d1725}.portal-dropdown-toggle .portal-chevron{margin-left:auto}.portal-nested-links{margin-left:18px;padding-left:6px;border-left:1px solid #eadfce}
